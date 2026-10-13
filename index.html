@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Richard Hobbs — Fashion Tech Intelligence</title>
+  <meta name="description" content="30 years across the fashion value chain. Reports, essays, and archive imagery. Available to humans and autonomous agents.">
+
+  <!-- WebMCP (imperative_api, navigator.modelContext.registerTool) -->
+  <script type="module">
+    async function o(n) {
+      const res = await fetch('https://richard-hobbs.com/mcp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json, text/event-stream' },
+        body: JSON.stringify({ jsonrpc: '2.0', id: Date.now(), method: 'tools/call', params: { name: 'list_catalogue', arguments: {} } })
+      });
+      return res.text();
+    }
+    const s = {
+      name: 'list_catalogue',
+      description: 'List fashion tech assets for sale by DrHobbs (ERC-8004 #17666). Returns id, title, description, price in USDC, type.',
+      inputSchema: { type: 'object', properties: {}, required: [] },
+      execute: o,
+      annotations: { readOnlyHint: true }
+    };
+    function a() {
+      'modelContext' in navigator && navigator.modelContext && navigator.modelContext.registerTool(s);
+    }
+    a();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ── Tokens ── */
+    :root {
+      --bg:           #060606;
+      --surface:      #0e0e0e;
+      --surface-hi:   #141414;
+      --surface-hover:#1a1a1a;
+      --border:       #1c1c1c;
+      --border-hi:    #2a2a2a;
+      --text:         #efefef;
+      --text-mid:     #999;
+      --text-dim:     #444;
+      --lime:         #c6ff00;
+      --lime-dim:     rgba(198,255,0,0.08);
+      --violet:       #8b5cf6;
+      --violet-dim:   rgba(139,92,246,0.10);
+      --violet-glow:  rgba(139,92,246,0.20);
+      --red:          #ff4444;
+      --serif:        'DM Serif Display', Georgia, serif;
+      --sans:         'Inter', system-ui, sans-serif;
+      --mono:         'DM Mono', 'Courier New', monospace;
+      --radius:       6px;
+      --radius-lg:    12px;
+      --max:          1200px;
+    }
+
+    /* ── Base ── */
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout helpers ── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* ═══════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      background: rgba(6,6,6,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: clamp(14px, 1.4vw, 18px);
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+    .nav-logo span { color: var(--lime); }
+
+    .nav-centre {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .interface-pill {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border-hi);
+      color: var(--text-mid);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+    .interface-pill.human { border-color: var(--border-hi); }
+    .interface-pill.agent {
+      border-color: rgba(139,92,246,0.3);
+      color: var(--violet);
+      background: var(--violet-dim);
+    }
+    .dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+    .dot.green { background: #22c55e; box-shadow: 0 0 6px #22c55e; }
+    .dot.violet { background: var(--violet); box-shadow: 0 0 6px var(--violet); }
+
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+
+    .agent-link {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--violet);
+      padding: 7px 14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(139,92,246,0.3);
+      background: var(--violet-dim);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .agent-link:hover { background: var(--violet-glow); border-color: rgba(139,92,246,0.5); }
+
+    .connect-btn {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 18px;
+      background: var(--lime);
+      color: #000;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+    .connect-btn:hover { background: #d4ff22; transform: translateY(-1px); }
+    .connect-btn.connected {
+      background: transparent;
+      border: 1px solid var(--border-hi);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    /* ═══════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════ */
+    .hero {
+      padding: 80px 24px 64px;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-left {}
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--lime);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .hero-title em { font-style: italic; color: var(--text-mid); }
+    .hero-body {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-mid);
+      max-width: 440px;
+      margin-bottom: 32px;
+    }
+    .hero-body strong { color: var(--text); font-weight: 500; }
+    .hero-cta-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .btn-primary {
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 24px;
+      background: var(--lime);
+      color: #000;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .btn-primary:hover { background: #d4ff22; transform: translateY(-1px); }
+    .btn-ghost {
+      font-size: 14px;
+      font-weight: 400;
+      padding: 12px 24px;
+      background: transparent;
+      color: var(--text-mid);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-hi);
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .btn-ghost:hover { border-color: var(--text-dim); color: var(--text); }
+
+    /* Hero right: dual interface visual */
+    .hero-right {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .interface-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+    .itab {
+      padding: 14px 20px;
+      font-family: var(--mono);
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: default;
+    }
+    .itab.human {
+      border-right: 1px solid var(--border);
+      color: var(--text-mid);
+    }
+    .itab.agent {
+      color: var(--violet);
+      background: var(--violet-dim);
+    }
+    .itab-icon { font-size: 14px; }
+    .interface-body { padding: 20px; }
+    .iblock { margin-bottom: 16px; }
+    .iblock:last-child { margin-bottom: 0; }
+    .ilabel {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .ivalue {
+      font-size: 13px;
+      color: var(--text-mid);
+    }
+    .ivalue.code {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--violet);
+      background: rgba(139,92,246,0.06);
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(139,92,246,0.15);
+      word-break: break-all;
+      line-height: 1.5;
+    }
+    .tools-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .tool-chip {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 12px;
+      border: 1px solid rgba(139,92,246,0.25);
+      color: var(--violet);
+      background: var(--violet-dim);
+    }
+
+    /* ═══════════════════════════════════════
+       DIVIDER
+    ═══════════════════════════════════════ */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+    .section-label {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 32px 24px 0;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .section-label h2 {
+      font-family: var(--serif);
+      font-size: 28px;
+      letter-spacing: -0.02em;
+    }
+    .section-label .count {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    /* ═══════════════════════════════════════
+       PRODUCT GRID
+    ═══════════════════════════════════════ */
+    .products { padding: 24px; max-width: var(--max); margin: 0 auto; }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .product-card {
+      background: var(--surface);
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      cursor: default;
+      transition: background 0.2s;
+    }
+    .product-card:hover { background: var(--surface-hover); }
+
+    /* Image product */
+    .preview-wrap {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      background: var(--surface-hi);
+    }
+    .preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(3px) brightness(0.7) saturate(0.9);
+      transform: scale(1.05);
+      transition: filter 0.4s, transform 0.4s;
+    }
+    .product-card:hover .preview-img {
+      filter: blur(1px) brightness(0.75) saturate(0.9);
+      transform: scale(1.08);
+    }
+    .preview-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: var(--text-dim);
+    }
+    .watermark {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .watermark-text {
+      font-family: var(--mono);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      color: rgba(255,255,255,0.35);
+      transform: rotate(-35deg);
+      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    }
+    .preview-label {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: #fff;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .preview-count {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: rgba(255,255,255,0.5);
+      background: rgba(0,0,0,0.5);
+      padding: 3px 7px;
+      border-radius: 4px;
+    }
+
+    /* Text product */
+    .report-visual {
+      aspect-ratio: 3/4;
+      background: var(--surface-hi);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      overflow: hidden;
+      position: relative;
+    }
+    .report-visual::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(ellipse at 30% 30%, rgba(198,255,0,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .report-type-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--lime);
+      text-transform: uppercase;
+      border: 1px solid rgba(198,255,0,0.25);
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      width: fit-content;
+    }
+    .report-visual-title {
+      font-family: var(--serif);
+      font-size: clamp(16px, 2vw, 22px);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    /* Product info bottom section */
+    .product-info-section {
+      padding: 16px 20px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .product-title {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--text);
+    }
+    .product-desc {
+      font-size: 12px;
+      line-height: 1.55;
+      color: var(--text-mid);
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+    .price {
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--lime);
+    }
+    .buy-btn {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 7px 14px;
+      background: var(--lime);
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+    .buy-btn:hover { background: #d4ff22; transform: translateY(-1px); }
+
+    /* ═══════════════════════════════════════
+       ADVISORY SECTION
+    ═══════════════════════════════════════ */
+    .advisory-section {
+      border-top: 1px solid var(--border);
+      padding: 80px 24px;
+    }
+    .advisory-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .advisory-headline {
+      font-family: var(--serif);
+      font-size: clamp(26px, 3.5vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 780px;
+      margin-bottom: 28px;
+    }
+    .advisory-body {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-mid);
+      max-width: 680px;
+      margin-bottom: 36px;
+    }
+    .advisory-cta-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn-advisory-primary {
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 24px;
+      background: var(--lime);
+      color: #000;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: all 0.18s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-advisory-primary:hover { background: #d4ff22; transform: translateY(-1px); }
+    .btn-advisory-ghost {
+      font-size: 14px;
+      font-weight: 400;
+      padding: 12px 24px;
+      background: transparent;
+      color: var(--text-mid);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-hi);
+      cursor: pointer;
+      transition: all 0.18s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-advisory-ghost:hover { border-color: var(--text-dim); color: var(--text); }
+
+    /* ═══════════════════════════════════════
+       RRG SECTION
+    ═══════════════════════════════════════ */
+    .rrg-story { padding: 80px 0 0; border-top: 1px solid var(--border); }
+    .rrg-story-inner { display: flex; gap: 48px; align-items: flex-start; }
+    .rrg-img-link {
+      flex: 0 0 340px;
+      display: block;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: opacity 0.2s;
+    }
+    .rrg-img-link:hover { opacity: 0.85; }
+    .rrg-img { width: 100%; height: auto; display: block; }
+    .rrg-section-tag {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em;
+      color: var(--lime); text-transform: uppercase; margin-bottom: 20px;
+      display: block;
+    }
+    .rrg-story-text { flex: 1; }
+    .rrg-story-text p, .rrg-open-text p {
+      color: var(--text-mid); font-size: 14px; line-height: 1.85;
+      margin-bottom: 14px; max-width: 680px;
+    }
+    .rrg-open { padding: 48px 0 80px; }
+    .rrg-open-text p { max-width: 760px; }
+    .rrg-cta {
+      display: inline-block; margin-top: 24px; padding: 12px 28px;
+      background: var(--lime); color: #060606; font-weight: 600;
+      font-size: 14px; border-radius: var(--radius);
+      text-decoration: none; transition: opacity 0.15s;
+    }
+    .rrg-cta:hover { opacity: 0.85; }
+    @media (max-width: 768px) {
+      .rrg-story-inner { flex-direction: column; }
+      .rrg-img-link { flex: 0 0 auto; width: 100%; }
+    }
+
+    /* ═══════════════════════════════════════
+       AGENT INTERFACE SECTION
+    ═══════════════════════════════════════ */
+    .agent-section {
+      margin: 80px 0 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--bg) 0%, rgba(139,92,246,0.03) 100%);
+      padding: 64px 24px;
+    }
+    .agent-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .agent-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--violet);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .agent-eyebrow::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--violet);
+    }
+    .agent-heading {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+    .agent-heading em { font-style: italic; color: var(--text-mid); }
+    .agent-body {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-mid);
+      margin-bottom: 24px;
+    }
+    .protocol-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .ptag {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(139,92,246,0.3);
+      color: var(--violet);
+      background: var(--violet-dim);
+    }
+
+    /* Terminal */
+    .terminal {
+      background: #0d1117;
+      border: 1px solid #21262d;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      font-family: var(--mono);
+    }
+    .terminal-bar {
+      background: #161b22;
+      border-bottom: 1px solid #21262d;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .terminal-dots { display: flex; gap: 6px; }
+    .tdot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #444;
+    }
+    .terminal-title {
+      font-size: 11px;
+      color: #666;
+      flex: 1;
+      text-align: center;
+    }
+    .terminal-body { padding: 20px; font-size: 12.5px; line-height: 1.7; }
+    .t-comment { color: #6a9955; }
+    .t-cmd { color: #9cdcfe; }
+    .t-flag { color: #ce9178; }
+    .t-url { color: #4ec9b0; }
+    .t-str { color: #ce9178; }
+    .t-key { color: #9cdcfe; }
+    .t-val { color: #b5cea8; }
+    .t-resp { color: #d4d4d4; margin-top: 4px; }
+    .t-line { display: block; margin: 1px 0; }
+    .t-prompt { color: #666; user-select: none; }
+
+    .agent-tools {
+      margin-top: 20px;
+      border-top: 1px solid #21262d;
+      padding: 16px 20px;
+    }
+    .agent-tools-label {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .tool-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tool-item {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 3px;
+      border: 1px solid #21262d;
+      color: #8b949e;
+      background: #0d1117;
+    }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+    }
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 32px;
+    }
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .footer-legal a {
+      font-size: 12px;
+      color: var(--text-dim);
+      transition: color 0.15s;
+    }
+    .footer-legal a:hover { color: var(--text-mid); }
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: 18px;
+      text-align: center;
+      color: var(--text-dim);
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+    .footer-social a {
+      font-size: 12px;
+      font-family: var(--mono);
+      color: var(--text-dim);
+      padding: 6px 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .footer-social a:hover { color: var(--text-mid); border-color: var(--border-hi); }
+    .footer-social a.submit { border-color: rgba(139,92,246,0.25); color: var(--violet); }
+    .footer-social a.submit:hover { background: var(--violet-dim); }
+    .footer-bottom {
+      max-width: var(--max);
+      margin: 24px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: var(--mono);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ═══════════════════════════════════════
+       WALLET CONNECT MODAL
+    ═══════════════════════════════════════ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border-hi);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 440px;
+      overflow: hidden;
+      transform: translateY(16px) scale(0.97);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .modal-overlay.open .modal-box { transform: translateY(0) scale(1); }
+
+    .modal-header {
+      padding: 22px 24px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      letter-spacing: -0.01em;
+    }
+    .modal-close {
+      width: 30px; height: 30px;
+      display: flex; align-items: center; justify-content: center;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-mid);
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.15s;
+    }
+    .modal-close:hover { background: var(--surface-hi); color: var(--text); }
+
+    .modal-body { padding: 20px 24px; }
+
+    .wallet-options { display: flex; flex-direction: column; gap: 8px; }
+    .wallet-option {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: var(--surface-hi);
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .wallet-option:hover { border-color: var(--border-hi); background: var(--surface-hover); }
+    .wallet-option.primary { border-color: rgba(198,255,0,0.2); }
+    .wallet-option.primary:hover { border-color: rgba(198,255,0,0.4); background: rgba(198,255,0,0.04); }
+    .wallet-option.disabled { opacity: 0.4; cursor: not-allowed; }
+    .wallet-option.disabled:hover { border-color: var(--border); background: var(--surface-hi); }
+
+    .wallet-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+      background: var(--surface);
+    }
+    .wallet-info { flex: 1; }
+    .wallet-name { font-size: 14px; font-weight: 500; color: var(--text); }
+    .wallet-sub { font-size: 12px; color: var(--text-mid); }
+    .wallet-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 10px;
+      background: rgba(198,255,0,0.12);
+      color: var(--lime);
+      border: 1px solid rgba(198,255,0,0.25);
+    }
+    .wallet-badge.soon {
+      background: rgba(255,255,255,0.05);
+      color: var(--text-dim);
+      border-color: var(--border);
+    }
+
+    /* ═══════════════════════════════════════
+       PURCHASE MODAL
+    ═══════════════════════════════════════ */
+    .purchase-modal .modal-header { padding: 22px 24px 18px; }
+    .purchase-product {
+      background: var(--surface-hi);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .pp-title { font-size: 14px; font-weight: 500; line-height: 1.4; margin-bottom: 4px; }
+    .pp-meta { font-size: 12px; color: var(--text-mid); }
+    .pp-price {
+      font-family: var(--mono);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--lime);
+      white-space: nowrap;
+    }
+
+    .purchase-action { display: flex; flex-direction: column; gap: 10px; }
+    .btn-purchase {
+      width: 100%;
+      padding: 14px;
+      background: var(--lime);
+      color: #000;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .btn-purchase:hover { background: #d4ff22; }
+    .btn-purchase:disabled { opacity: 0.5; cursor: not-allowed; }
+    .purchase-note {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-align: center;
+      font-family: var(--mono);
+    }
+    .pay-processing {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 0 4px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-mid);
+    }
+    .pay-confirm {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 11px 14px;
+      background: rgba(34,197,94,0.07);
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: var(--radius);
+      font-size: 13px;
+      color: #22c55e;
+      margin-bottom: 16px;
+    }
+    .pay-confirm-tx {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--violet);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .email-capture { display: flex; flex-direction: column; gap: 10px; }
+    .email-capture label { font-size: 13px; color: var(--text-mid); }
+    .email-input {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--surface-hi);
+      border: 1px solid var(--border-hi);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 14px;
+      font-family: var(--sans);
+      outline: none;
+      transition: border-color 0.15s;
+      box-sizing: border-box;
+    }
+    .email-input:focus { border-color: rgba(198,255,0,0.4); }
+    .email-input::placeholder { color: var(--text-dim); }
+    .delivery-done {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      padding: 28px 0 8px;
+      text-align: center;
+    }
+    .delivery-done-icon { font-size: 38px; }
+    .delivery-done-msg { font-size: 15px; color: var(--text); font-weight: 500; }
+    .delivery-done-sub { font-size: 12px; color: var(--text-mid); font-family: var(--mono); max-width: 260px; line-height: 1.5; }
+    .delivery-done-tx {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--violet);
+      padding: 6px 12px;
+      background: var(--violet-dim);
+      border-radius: var(--radius);
+      border: 1px solid rgba(139,92,246,0.2);
+      text-decoration: none;
+    }
+
+    .error-msg {
+      padding: 12px;
+      background: rgba(255,68,68,0.08);
+      border: 1px solid rgba(255,68,68,0.2);
+      border-radius: var(--radius);
+      font-size: 12px;
+      color: var(--red);
+      display: none;
+    }
+    .error-msg.show { display: block; }
+
+    /* ═══════════════════════════════════════
+       LOADING STATES
+    ═══════════════════════════════════════ */
+    .skeleton {
+      background: linear-gradient(90deg, var(--surface-hi) 25%, var(--surface-hover) 50%, var(--surface-hi) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+      border-radius: 4px;
+    }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+    .spinner {
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid rgba(198,255,0,0.2);
+      border-top-color: var(--lime);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px 40px; }
+      .hero-right { display: none; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .agent-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+      .footer-legal { justify-content: center; }
+      .footer-social { justify-content: center; }
+      .nav-centre { display: none; }
+    }
+    @media (max-width: 600px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .nav-right { gap: 6px; }
+      .agent-link { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════ -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">Digital Fashion + Insight<span>.</span></div>
+
+      <div class="nav-centre">
+        <div class="interface-pill human">
+          <span class="dot green"></span>
+          Human interface
+        </div>
+        <div style="font-size:12px;color:var(--text-dim);padding:0 4px;">+</div>
+        <div class="interface-pill agent">
+          <span class="dot violet"></span>
+          Agent interface
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <a href="#agent-section" class="agent-link">⬡ MCP / x402</a>
+        <button class="connect-btn" id="connectBtn">Connect Wallet</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <header>
+    <div class="hero">
+      <div class="hero-left">
+        <div class="hero-eyebrow">Fashion Tech Intelligence</div>
+        <h1 class="hero-title">Knowledge<br>across the<br><em>value chain.</em></h1>
+        <p class="hero-body">
+          From denim mills to digital fashion, blockchain infrastructure to autonomous agent commerce.
+          Knowledge and research, archives and new product — available to human buyers and AI agents alike.
+        </p>
+        <div class="hero-cta-row">
+          <button class="btn-primary" onclick="document.querySelector('.products').scrollIntoView({behavior:'smooth'})">Browse catalogue</button>
+          <button class="btn-ghost" onclick="document.getElementById('agent-section').scrollIntoView({behavior:'smooth'})">Agent interface →</button>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="interface-tabs">
+          <div class="itab human">
+            <span class="itab-icon">👤</span>
+            Human interface
+          </div>
+          <div class="itab agent">
+            <span class="itab-icon">⬡</span>
+            Agent interface
+          </div>
+        </div>
+        <div class="interface-body">
+          <div class="iblock">
+            <div class="ilabel">MCP Endpoint</div>
+            <div class="ivalue code">https://richard-hobbs.com/mcp</div>
+          </div>
+          <div class="iblock">
+            <div class="ilabel">Payment Protocol</div>
+            <div class="ivalue code">x402 · USDC · Base mainnet</div>
+          </div>
+          <div class="iblock">
+            <div class="ilabel">ERC-8004 Identity</div>
+            <div class="ivalue code">Agent #17666 — base-mainnet</div>
+          </div>
+          <div class="iblock">
+            <div class="ilabel">Available Tools</div>
+            <div class="tools-list">
+              <span class="tool-chip">list_catalogue</span>
+              <span class="tool-chip">get_payment_info</span>
+              <span class="tool-chip">purchase_asset</span>
+              <span class="tool-chip">get_agent_info</span>
+              <span class="tool-chip">treasury_status</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════
+       ADVISORY SECTION
+  ═══════════════════════════════════════ -->
+  <section class="advisory-section" id="advisory-section">
+    <div class="advisory-inner">
+      <h2 class="advisory-headline">Most businesses are adopting AI. Very few have built a business that AI can actually run.</h2>
+      <p class="advisory-body">
+        I have spent the past year building <a href="https://www.getvia.xyz" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">VIA Labs</a> as an agent-first business from the ground up. Six AI agents running live operations across multiple operational entities, at minimal cost, with the role clarity and governance that means they act without constant supervision. I work with a small number of founder-led businesses to design, deploy, and continuously develop their own agent infrastructure. The engagement is ongoing by design, because a system that does not evolve becomes a liability. The output is a business that runs differently.
+      </p>
+      <div class="advisory-cta-row">
+        <a href="#available-now" class="btn-advisory-primary" onclick="document.getElementById('available-now').scrollIntoView({behavior:'smooth'});return false;">Read the full guide</a>
+        <a href="https://www.getvia.xyz" target="_blank" rel="noopener" class="btn-advisory-ghost">Visit VIA</a>
+        <a href="mailto:richard@entrepot.asia" class="btn-advisory-ghost">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       RRG SECTION
+  ═══════════════════════════════════════ -->
+  <section class="rrg-story">
+    <div class="container">
+      <div class="rrg-story-inner">
+
+        <!-- Image — links to RRG -->
+        <a href="https://realrealgenuine.com" target="_blank" rel="noopener" class="rrg-img-link">
+          <img src="/rh-drops-preview.jpg" alt="Real Real Genuine — current drops" class="rrg-img" />
+        </a>
+
+        <!-- Text — NOT linked -->
+        <div class="rrg-story-text">
+          <span class="rrg-section-tag">The Return of Real Real Genuine</span>
+          <p>Real Real Genuine, or RRG, was originally launched in 2007 as an experimental collaboration brand. We focused on mens and denim but ventured into colognes, leather, footwear and more.</p>
+          <p>The concept was simple. Instead of operating like a traditional fashion label with a single creative direction, RRG invited other designers, artists, and brands to collaborate. We worked with Alyasha Owerka-Moore, Anthony Harrison, Methamphibian, Lodger, Alfred Sargent, Baracuta, John Smedley, Eddie Otchere, Social Creatures and more.</p>
+          <p>Each project resulted in small runs of limited edition products, many individually numbered, which were sold through the early RRG website and a handful of carefully selected retailers in international markets.</p>
+          <p>These included the likes of Duffer of St George, Aspecto, Luisa via Roma, Fred Segal, very early Revolve, and some of the best Japanese boutiques.</p>
+          <p>It developed a following among people interested in collaboration-driven fashion and limited production runs. Eventually the project was paused as other work took priority, but the idea behind it remained unfinished.</p>
+          <p>RRG now returns in a new form that reflects how creative culture and technology have changed.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RRG OPEN PROCESS -->
+  <section class="rrg-open">
+    <div class="container">
+      <div class="rrg-open-text">
+        <p>Instead of collaborations being arranged privately between a brand and invited partners, the process is now open. Anyone can submit a design for consideration. Submissions are made through the website in a simple JPEG format. The work can be created digitally, drawn by hand, produced with AI tools, or developed using any other method.</p>
+        <p>Each submission is reviewed to ensure it meets a basic standard and fits the spirit of the project. This is open to individual creators and agents with creative skills. Just follow the brief.</p>
+        <p>If approved, the design becomes available for purchase. When a purchase is made, the item is minted immediately and the payment is processed using USDC on the Base blockchain. The revenue from the transaction is automatically divided between the creator and the platform.</p>
+        <p>This approach keeps the original spirit of RRG intact. Limited editions, collaborative creativity, and direct distribution. The difference is that the process is now immediate, global, and accessible to anyone who wants to participate.</p>
+        <a href="https://realrealgenuine.com" target="_blank" rel="noopener" class="rrg-cta">Join In Now &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PRODUCTS
+  ═══════════════════════════════════════ -->
+  <hr class="section-divider">
+  <div class="section-label" id="available-now">
+    <h2>Available now</h2>
+    <span class="count" id="catalogueCount">Loading…</span>
+  </div>
+
+  <section class="products">
+    <div class="product-grid" id="productGrid">
+      <!-- Skeleton loaders -->
+      <div class="product-card" style="opacity:.4">
+        <div class="preview-wrap skeleton"></div>
+        <div class="product-info-section"><div style="height:12px;background:var(--border);border-radius:3px;margin-bottom:8px;width:60%" class="skeleton"></div><div style="height:40px;background:var(--border);border-radius:3px" class="skeleton"></div></div>
+      </div>
+      <div class="product-card" style="opacity:.3">
+        <div class="preview-wrap skeleton"></div>
+        <div class="product-info-section"><div style="height:12px;background:var(--border);border-radius:3px;margin-bottom:8px;width:70%" class="skeleton"></div><div style="height:40px;background:var(--border);border-radius:3px" class="skeleton"></div></div>
+      </div>
+      <div class="product-card" style="opacity:.2">
+        <div class="preview-wrap skeleton"></div>
+        <div class="product-info-section"><div style="height:12px;background:var(--border);border-radius:3px;margin-bottom:8px;width:50%" class="skeleton"></div><div style="height:40px;background:var(--border);border-radius:3px" class="skeleton"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       AGENT INTERFACE SECTION
+  ═══════════════════════════════════════ -->
+  <section class="agent-section" id="agent-section">
+    <div class="agent-inner">
+      <div class="agent-text">
+        <div class="agent-eyebrow">MCP · x402 · ERC-8004</div>
+        <h2 class="agent-heading">Built for<br><em>autonomous agents.</em></h2>
+        <p class="agent-body">
+          Every asset in this catalogue is purchasable by autonomous AI agents in a single session — no UI, no human in the loop.
+          List, pay, and receive via the MCP protocol with x402 micropayment headers and 8004 Trust.
+        </p>
+        <div class="protocol-tags">
+          <span class="ptag">MCP Streamable HTTP</span>
+          <span class="ptag">x402 exact-match</span>
+          <span class="ptag">USDC · Base mainnet</span>
+          <span class="ptag">ERC-8004 #17666</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="terminal-dots">
+              <div class="tdot"></div>
+              <div class="tdot"></div>
+              <div class="tdot"></div>
+            </div>
+            <div class="terminal-title">agent session — Base mainnet</div>
+          </div>
+          <div class="terminal-body">
+            <span class="t-line"><span class="t-comment"># 1. Discover available assets</span></span>
+            <span class="t-line"><span class="t-prompt">$ </span><span class="t-cmd">curl</span> <span class="t-flag">-X POST</span> <span class="t-url">https://richard-hobbs.com/mcp</span> \</span>
+            <span class="t-line">  <span class="t-flag">-H</span> <span class="t-str">"Accept: application/json, text/event-stream"</span> \</span>
+            <span class="t-line">  <span class="t-flag">-d</span> <span class="t-str">'{"method":"tools/call","params":{"name":"list_catalogue"}}'</span></span>
+            <span class="t-line">&nbsp;</span>
+            <span class="t-line"><span class="t-comment"># 2. Get payment info for an asset</span></span>
+            <span class="t-line"><span class="t-resp">→ payTo: <span class="t-val">0xe653...2d51</span></span></span>
+            <span class="t-line"><span class="t-resp">→ amount: <span class="t-val">"0.25"</span> USDC · Base mainnet</span></span>
+            <span class="t-line">&nbsp;</span>
+            <span class="t-line"><span class="t-comment"># 3. Send USDC on-chain, then claim</span></span>
+            <span class="t-line"><span class="t-prompt">$ </span><span class="t-cmd">curl</span> <span class="t-flag">-d</span> <span class="t-str">'{"name":"purchase_asset","arguments":{"asset_id":4,"tx_hash":"0x..."}}'</span></span>
+            <span class="t-line">&nbsp;</span>
+            <span class="t-line"><span class="t-resp">→ <span style="color:#22c55e">✓ Delivered: 2 image blocks (base64 JPEG)</span></span></span>
+          </div>
+          <div class="agent-tools">
+            <div class="agent-tools-label">Available tools</div>
+            <div class="tool-list">
+              <span class="tool-item">list_catalogue</span>
+              <span class="tool-item">get_payment_info</span>
+              <span class="tool-item">purchase_asset</span>
+              <span class="tool-item">get_agent_info</span>
+              <span class="tool-item">treasury_status</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-legal">
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a href="mailto:realrealgenuine@proton.me">Contact</a>
+      </div>
+      <div class="footer-brand">RH</div>
+      <div class="footer-social">
+        <a href="https://t.me/RealRealGenuine" target="_blank" rel="noopener" class="submit" title="Submit designs via Telegram">
+          ✈ Telegram
+        </a>
+        <a href="https://bsky.app/profile/realrealgenuine.bsky.social" target="_blank" rel="noopener" class="submit" title="Submit designs via Bluesky">
+          ☁ Bluesky
+        </a>
+        <a href="https://www.getvia.xyz" target="_blank" rel="noopener" title="VIA Labs">
+          ⬡ VIA Labs
+        </a>
+        <a href="https://instagram.com/richardjhobbs" target="_blank" rel="noopener" title="Follow on Instagram">
+          ◇ Instagram
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Richard Hobbs · Fashion Tech & Agentic Commerce</span>
+      <span>Agent #17666 · Base mainnet · <a href="/mcp" style="color:var(--violet)">MCP endpoint live</a></span>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       WALLET MODAL
+  ═══════════════════════════════════════ -->
+  <div class="modal-overlay" id="walletModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">Connect wallet</div>
+        <button class="modal-close" onclick="closeModal('walletModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="wallet-options">
+          <div class="wallet-option primary" id="metamaskOption" onclick="connectMetaMask()">
+            <div class="wallet-icon">🦊</div>
+            <div class="wallet-info">
+              <div class="wallet-name">MetaMask</div>
+              <div class="wallet-sub">Browser extension wallet</div>
+            </div>
+            <span class="wallet-badge" id="metamaskBadge">Detected</span>
+          </div>
+          <div class="wallet-option disabled" title="Coming soon">
+            <div class="wallet-icon">🔗</div>
+            <div class="wallet-info">
+              <div class="wallet-name">WalletConnect</div>
+              <div class="wallet-sub">Scan QR with any mobile wallet</div>
+            </div>
+            <span class="wallet-badge soon">Soon</span>
+          </div>
+          <div class="wallet-option disabled" title="Coming soon">
+            <div class="wallet-icon">💳</div>
+            <div class="wallet-info">
+              <div class="wallet-name">Card payment</div>
+              <div class="wallet-sub">Pay with credit or debit card</div>
+            </div>
+            <span class="wallet-badge soon">Soon</span>
+          </div>
+        </div>
+        <p style="font-size:11px;color:var(--text-dim);text-align:center;margin-top:16px;font-family:var(--mono)">
+          Payments on Base mainnet · USDC only · No account required
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       PURCHASE MODAL
+  ═══════════════════════════════════════ -->
+  <div class="modal-overlay" id="purchaseModal">
+    <div class="modal-box purchase-modal">
+      <div class="modal-header">
+        <div class="modal-title">Purchase asset</div>
+        <button class="modal-close" onclick="closeModal('purchaseModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="purchase-product">
+          <div>
+            <div class="pp-title" id="pp-title">—</div>
+            <div class="pp-meta" id="pp-meta">—</div>
+          </div>
+          <div class="pp-price" id="pp-price">—</div>
+        </div>
+
+        <!-- Stage: Pay -->
+        <div id="stage-pay">
+          <div class="error-msg" id="purchaseError"></div>
+          <div class="pay-processing" id="payProcessing" style="display:none">
+            <span class="spinner"></span>
+            <span id="payProcessingMsg">Processing…</span>
+          </div>
+          <div class="purchase-action">
+            <button class="btn-purchase" id="purchaseBtn" onclick="executePurchase()">Pay — USDC</button>
+            <p class="purchase-note">Opens MetaMask · USDC on Base mainnet</p>
+          </div>
+        </div>
+
+        <!-- Stage: Email -->
+        <div id="stage-email" style="display:none">
+          <div class="pay-confirm">
+            <span>✓ Payment confirmed</span>
+            <a id="payConfirmTx" href="#" target="_blank" rel="noopener" class="pay-confirm-tx"></a>
+          </div>
+          <div class="email-capture">
+            <label for="deliveryEmail">Where should we send your asset?</label>
+            <input type="email" id="deliveryEmail" class="email-input" placeholder="you@example.com" />
+            <button class="btn-purchase" id="sendBtn" onclick="sendDelivery()">Send →</button>
+            <div class="error-msg" id="deliveryError"></div>
+          </div>
+        </div>
+
+        <!-- Stage: Done -->
+        <div id="stage-done" style="display:none">
+          <div class="delivery-done">
+            <div class="delivery-done-icon">✉</div>
+            <div class="delivery-done-msg" id="doneMsgPrimary">Asset sent!</div>
+            <div class="delivery-done-sub" id="doneMsgSub">Check your inbox — it should arrive within a minute.</div>
+            <a id="doneTxLink" href="#" target="_blank" rel="noopener" class="delivery-done-tx">View on Basescan →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SCRIPT PART 1 — No ethers dependency.
+       Runs immediately so catalogue loads
+       even if the wallet CDN is slow/blocked.
+  ═══════════════════════════════════════ -->
+  <script>
+    // ── Constants ──────────────────────────────────────────────
+    const USDC_ADDRESS  = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913';
+    const AGENT_WALLET  = '0xe653804032a2d51cc031795afc601b9b1fd2c375';
+    const BASE_CHAIN_ID = 8453;
+    const BASE_HEX      = '0x2105';
+    const BASE_CONFIG   = {
+      chainId: BASE_HEX,
+      chainName: 'Base',
+      rpcUrls: ['https://mainnet.base.org'],
+      nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
+      blockExplorerUrls: ['https://basescan.org']
+    };
+
+    // ── State ─────────────────────────────────────────────────
+    let currentWallet   = null;
+    let currentPurchase = null;
+    let currentTxHash   = null;
+
+    // ── Modal helpers ─────────────────────────────────────────
+    function openModal(id) {
+      document.getElementById(id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.modal-overlay').forEach(el => {
+      el.addEventListener('click', e => { if (e.target === el) closeModal(el.id); });
+    });
+
+    // ── Connect button ────────────────────────────────────────
+    function updateConnectBtn() {
+      const btn = document.getElementById('connectBtn');
+      if (currentWallet) {
+        btn.textContent = currentWallet.slice(0,6) + '…' + currentWallet.slice(-4);
+        btn.classList.add('connected');
+        btn.onclick = disconnectWallet;
+      } else {
+        btn.textContent = 'Connect Wallet';
+        btn.classList.remove('connected');
+        btn.onclick = openWalletModal;
+      }
+    }
+
+    function disconnectWallet() {
+      currentWallet = null;
+      updateConnectBtn();
+    }
+
+    // ── Wallet modal ──────────────────────────────────────────
+    function openWalletModal() {
+      if (currentWallet) return;
+      const hasMetaMask = typeof window.ethereum !== 'undefined';
+      const opt   = document.getElementById('metamaskOption');
+      const badge = document.getElementById('metamaskBadge');
+      if (!hasMetaMask) {
+        opt.classList.add('disabled');
+        badge.textContent = 'Not found';
+        badge.className   = 'wallet-badge soon';
+        opt.onclick = () => window.open('https://metamask.io/download/', '_blank');
+      } else {
+        opt.classList.remove('disabled');
+        badge.textContent = 'Detected';
+        badge.className   = 'wallet-badge';
+        opt.onclick = connectMetaMask;
+      }
+      openModal('walletModal');
+    }
+
+    // ── Purchase modal helpers ────────────────────────────────
+    function showPurchaseStage(stage) {
+      ['stage-pay', 'stage-email', 'stage-done'].forEach(id => {
+        document.getElementById(id).style.display = (id === 'stage-' + stage) ? '' : 'none';
+      });
+    }
+
+    function showError(msg) {
+      const el = document.getElementById('purchaseError');
+      el.textContent = msg;
+      el.classList.add('show');
+    }
+
+    function openPurchase(assetId, title, price, type) {
+      currentPurchase = { assetId, title, price, type };
+      currentTxHash   = null;
+      // Reset stage-pay
+      document.getElementById('purchaseError').classList.remove('show');
+      document.getElementById('purchaseError').textContent = '';
+      document.getElementById('payProcessing').style.display = 'none';
+      const btn = document.getElementById('purchaseBtn');
+      btn.disabled    = false;
+      btn.textContent = 'Pay ' + price.toFixed(2) + ' USDC';
+      // Reset email stage
+      document.getElementById('deliveryEmail').value = '';
+      document.getElementById('deliveryError').classList.remove('show');
+      document.getElementById('sendBtn').disabled    = false;
+      document.getElementById('sendBtn').textContent = 'Send →';
+      // Product info
+      document.getElementById('pp-title').textContent = title;
+      document.getElementById('pp-meta').textContent  =
+        type === 'jpg' ? 'Photography · JPEG · Front + back views'
+        : type === 'md' ? 'Essay / Report · Markdown' : type.toUpperCase();
+      document.getElementById('pp-price').textContent = price.toFixed(2) + ' USDC';
+      showPurchaseStage('pay');
+      if (!currentWallet) { openWalletModal(); return; }
+      openModal('purchaseModal');
+    }
+
+    // ── Catalogue ─────────────────────────────────────────────
+    const REPORT_TYPE_LABELS = { md: 'ESSAY', pdf: 'REPORT', txt: 'DOCUMENT' };
+
+    function escHtml(str) {
+      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function buildImageCard(item) {
+      const previewSrc = '/previews/' + item.filename + '-front.jpg';
+      return `<div class="product-card">
+          <div class="preview-wrap">
+            <img class="preview-img" src="${previewSrc}" alt="${escHtml(item.title)}"
+                 onerror="this.style.display='none';this.parentElement.querySelector('.preview-placeholder').style.display='flex'">
+            <div class="preview-placeholder" style="display:none">📷</div>
+            <div class="watermark"><span class="watermark-text">PREVIEW</span></div>
+            <div class="preview-label">DIGITAL FASHION</div>
+            <div class="preview-count">Front + back</div>
+          </div>
+          <div class="product-info-section">
+            <div class="product-title">${escHtml(item.title)}</div>
+            <div class="product-desc">${escHtml(item.description)}</div>
+            <div class="product-footer">
+              <span class="price">${item.price.toFixed(2)} USDC</span>
+              <button class="buy-btn" onclick="openPurchase(${item.id},${escHtml(JSON.stringify(item.title))},${item.price},'${item.type}')">Purchase →</button>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    function buildReportCard(item) {
+      const label      = REPORT_TYPE_LABELS[item.type] || 'DOCUMENT';
+      const baseName   = item.filename ? item.filename.replace(/\.[^.]+$/, '') : '';
+      const previewSrc = '/previews/' + baseName + '-front.jpg';
+      return `<div class="product-card">
+          <div class="preview-wrap">
+            <img class="preview-img" src="${previewSrc}" alt="${escHtml(item.title)}"
+                 onerror="this.closest('.preview-wrap').style.display='none';this.closest('.product-card').querySelector('.report-visual').style.display='flex'">
+            <div class="watermark"><span class="watermark-text">PREVIEW</span></div>
+            <div class="preview-label">${label}</div>
+          </div>
+          <div class="report-visual" style="display:none">
+            <div class="report-type-tag">${label}</div>
+            <div class="report-visual-title">${escHtml(item.title)}</div>
+          </div>
+          <div class="product-info-section">
+            <div class="product-desc">${escHtml(item.description)}</div>
+            <div class="product-footer">
+              <span class="price">${item.price.toFixed(2)} USDC</span>
+              <button class="buy-btn" onclick="openPurchase(${item.id},${escHtml(JSON.stringify(item.title))},${item.price},'${item.type}')">Purchase →</button>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    function renderCatalogue(items) {
+      const imageItems  = items.filter(i => ['jpg','jpeg','png','gif','webp'].includes(i.type));
+      const reportItems = items.filter(i => !['jpg','jpeg','png','gif','webp'].includes(i.type));
+      const ordered     = [...reportItems, ...imageItems];
+      document.getElementById('productGrid').innerHTML = ordered.map(item =>
+        ['jpg','jpeg','png','gif','webp'].includes(item.type)
+          ? buildImageCard(item) : buildReportCard(item)
+      ).join('');
+      document.getElementById('catalogueCount').textContent =
+        items.length + ' item' + (items.length !== 1 ? 's' : '');
+    }
+
+    async function loadCatalogue() {
+      try {
+        const res  = await fetch('/api/catalogue');
+        const data = await res.json();
+        renderCatalogue(data.items || []);
+      } catch (e) {
+        console.error('Catalogue load failed:', e);
+        document.getElementById('productGrid').innerHTML =
+          '<div style="padding:40px;color:var(--text-dim);font-family:var(--mono);font-size:13px;grid-column:1/-1">' +
+          'Unable to load catalogue. <a href="/health" style="color:var(--violet)">Check server status →</a></div>';
+      }
+    }
+
+    // ── Init: catalogue runs NOW, independent of wallet library ─
+    loadCatalogue();
+
+    // Wire up connect button (no inline onclick in HTML)
+    updateConnectBtn();
+
+    // Restore previously connected wallet (no ethers needed for eth_accounts)
+    if (window.ethereum) {
+      window.ethereum.request({ method: 'eth_accounts' })
+        .then(a => { if (a.length) { currentWallet = a[0]; updateConnectBtn(); } })
+        .catch(() => {});
+    }
+  </script>
+
+  <!-- ═══════════════════════════════════════
+       Ethers.js — deferred so it doesn't
+       block page render or catalogue load.
+  ═══════════════════════════════════════ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.9.0/ethers.umd.min.js" defer></script>
+
+  <!-- ═══════════════════════════════════════
+       SCRIPT PART 2 — Wallet + purchase.
+       Uses ethers but only at call time
+       (user interaction), so defer is fine.
+  ═══════════════════════════════════════ -->
+  <script>
+    const USDC_ABI = [
+      'function transfer(address to, uint256 amount) returns (bool)',
+      'function balanceOf(address owner) view returns (uint256)',
+    ];
+
+    async function connectMetaMask() {
+      if (!window.ethereum) { window.open('https://metamask.io/download/', '_blank'); return; }
+      if (typeof ethers === 'undefined') {
+        // ethers still loading — wait briefly and retry
+        await new Promise(r => setTimeout(r, 800));
+        if (typeof ethers === 'undefined') { alert('Wallet library loading, please try again in a moment.'); return; }
+      }
+      try {
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        const signer   = await provider.getSigner();
+        currentWallet  = await signer.getAddress();
+        updateConnectBtn();
+        closeModal('walletModal');
+        if (currentPurchase) openModal('purchaseModal');
+      } catch (e) {
+        console.error('Wallet connect error:', e);
+      }
+    }
+
+    async function executePurchase() {
+      if (!currentPurchase) return;
+      if (typeof ethers === 'undefined') { showError('Wallet library not loaded — please refresh.'); return; }
+      const { price } = currentPurchase;
+
+      const btn        = document.getElementById('purchaseBtn');
+      const processing = document.getElementById('payProcessing');
+      const msgEl      = document.getElementById('payProcessingMsg');
+
+      btn.disabled = true;
+      document.getElementById('purchaseError').classList.remove('show');
+
+      try {
+        // Connect wallet
+        if (!window.ethereum) throw new Error('No wallet detected. Install MetaMask to continue.');
+        processing.style.display = 'flex';
+        msgEl.textContent = 'Connecting wallet…';
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        const signer   = await provider.getSigner();
+        currentWallet  = await signer.getAddress();
+        updateConnectBtn();
+
+        // Switch to Base if needed
+        msgEl.textContent = 'Switching to Base…';
+        const network = await provider.getNetwork();
+        if (network.chainId !== BigInt(BASE_CHAIN_ID)) {
+          try {
+            await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: BASE_HEX }] });
+          } catch (switchErr) {
+            if (switchErr.code === 4902) {
+              await window.ethereum.request({ method: 'wallet_addEthereumChain', params: [BASE_CONFIG] });
+            } else throw switchErr;
+          }
+        }
+
+        // Fresh provider after potential chain switch
+        const p2 = new ethers.BrowserProvider(window.ethereum);
+        const s2 = await p2.getSigner();
+
+        // Send USDC
+        processing.style.display = 'none';
+        btn.innerHTML = '<span class="spinner"></span> Waiting for wallet…';
+        const usdc   = new ethers.Contract(USDC_ADDRESS, USDC_ABI, s2);
+        const amount = ethers.parseUnits(price.toFixed(6), 6);
+        const tx     = await usdc.transfer(AGENT_WALLET, amount);
+
+        btn.innerHTML = '<span class="spinner"></span> Confirming…';
+        await tx.wait(1);
+
+        // Payment confirmed — move to email stage
+        currentTxHash = tx.hash;
+        const confirmTx = document.getElementById('payConfirmTx');
+        confirmTx.href        = 'https://basescan.org/tx/' + tx.hash;
+        confirmTx.textContent = tx.hash.slice(0,10) + '…' + tx.hash.slice(-6);
+        showPurchaseStage('email');
+
+      } catch (err) {
+        console.error('Purchase error:', err);
+        processing.style.display = 'none';
+        btn.disabled    = false;
+        btn.textContent = 'Try again';
+        let msg = err.message || 'Transaction failed';
+        if (err.code === 4001 || msg.includes('user rejected') || msg.includes('denied'))
+          msg = 'Transaction rejected in wallet.';
+        if (msg.includes('insufficient funds') || msg.includes('ERC20: transfer amount exceeds balance'))
+          msg = 'Insufficient USDC balance on Base mainnet.';
+        showError(msg);
+      }
+    }
+
+    async function sendDelivery() {
+      const emailEl = document.getElementById('deliveryEmail');
+      const errorEl = document.getElementById('deliveryError');
+      const sendBtn = document.getElementById('sendBtn');
+      const email   = emailEl.value.trim();
+
+      errorEl.classList.remove('show');
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorEl.textContent = 'Please enter a valid email address.';
+        errorEl.classList.add('show');
+        return;
+      }
+      if (!currentTxHash || !currentPurchase) {
+        errorEl.textContent = 'Session expired — please restart the purchase.';
+        errorEl.classList.add('show');
+        return;
+      }
+
+      sendBtn.disabled  = true;
+      sendBtn.innerHTML = '<span class="spinner"></span> Sending…';
+
+      try {
+        const resp = await fetch('/api/deliver', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            asset_id: currentPurchase.assetId,
+            tx_hash:  currentTxHash
+          })
+        });
+        const data = await resp.json();
+        if (!resp.ok || data.error) throw new Error(data.error || 'Delivery failed');
+
+        document.getElementById('doneMsgSub').textContent =
+          'Sent to ' + email + ' — check your inbox.';
+        document.getElementById('doneTxLink').href =
+          'https://basescan.org/tx/' + currentTxHash;
+        showPurchaseStage('done');
+
+      } catch (err) {
+        console.error('Delivery error:', err);
+        sendBtn.disabled    = false;
+        sendBtn.textContent = 'Try again';
+        errorEl.textContent = err.message || 'Failed to send. Please try again.';
+        errorEl.classList.add('show');
+      }
+    }
+
+    // Wallet account change listener
+    if (window.ethereum) {
+      window.ethereum.on('accountsChanged', accounts => {
+        currentWallet = accounts.length > 0 ? accounts[0] : null;
+        updateConnectBtn();
+      });
+      window.ethereum.on('chainChanged', () => window.location.reload());
+    }
+  </script>
+
+
+</body>
+</html>
