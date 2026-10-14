@@ -1,0 +1,40 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency: deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HOST: 89.167.89.219
+      USER: agent
+      WEB_ROOT: /var/www/richard-hobbs.com
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts
+
+      - name: Back up live files
+        run: |
+          ssh "$USER@$HOST" "mkdir -p ~/backups/richard-hobbs.com && \
+            tar czf ~/backups/richard-hobbs.com/\$(date -u +%Y%m%dT%H%M%SZ).tgz -C '$WEB_ROOT' ."
+
+      - name: Upload site
+        # No --delete: the repo holds only the files managed here, the rest of the web root stays as is.
+        run: |
+          rsync -avz --exclude='.git*' --exclude='.github' --exclude='README.md' ./ "$USER@$HOST:$WEB_ROOT/"
+
+      - name: Verify
+        run: |
+          sleep 2
+          curl -fsS https://richard-hobbs.com | grep -q 'getvia.xyz'
