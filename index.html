@@ -525,6 +525,7 @@
       white-space: nowrap;
     }
     .buy-btn:hover { background: #d4ff22; transform: translateY(-1px); }
+    a.buy-btn { display: inline-block; text-decoration: none; }
 
     /* ═══════════════════════════════════════
        ADVISORY SECTION
@@ -1620,28 +1621,54 @@
         </div>`;
     }
 
+    // Listings come from the DrHobbs Knowledge store on VIA.
+    const VIA_STORE     = 'https://app.getvia.xyz/sellers/drhobbs-knowledge';
+
+    function buildViaCard(item) {
+      const url   = item.product_url || (VIA_STORE + '/products/' + encodeURIComponent(item.product_id));
+      const label = (item.kind || 'digital').toUpperCase();
+      const price = Number(item.price_usdc);
+      const visual = item.image_url
+        ? `<div class="preview-wrap">
+            <img class="preview-img" src="${escHtml(item.image_url)}" alt="${escHtml(item.title)}" loading="lazy">
+            <div class="preview-label">${escHtml(label)}</div>
+          </div>`
+        : `<div class="report-visual">
+            <div class="report-type-tag">${escHtml(label)}</div>
+            <div class="report-visual-title">${escHtml(item.title)}</div>
+          </div>`;
+      return `<div class="product-card">
+          ${visual}
+          <div class="product-info-section">
+            ${item.image_url ? `<div class="product-title">${escHtml(item.title)}</div>` : ''}
+            <div class="product-desc">${escHtml(item.description || '')}</div>
+            <div class="product-footer">
+              <span class="price">${price.toFixed(2)} USDC</span>
+              <a class="buy-btn" href="${escHtml(url)}" target="_blank" rel="noopener">Buy on VIA →</a>
+            </div>
+          </div>
+        </div>`;
+    }
+
     function renderCatalogue(items) {
-      const imageItems  = items.filter(i => ['jpg','jpeg','png','gif','webp'].includes(i.type));
-      const reportItems = items.filter(i => !['jpg','jpeg','png','gif','webp'].includes(i.type));
-      const ordered     = [...reportItems, ...imageItems];
-      document.getElementById('productGrid').innerHTML = ordered.map(item =>
-        ['jpg','jpeg','png','gif','webp'].includes(item.type)
-          ? buildImageCard(item) : buildReportCard(item)
-      ).join('');
-      document.getElementById('catalogueCount').textContent =
-        items.length + ' item' + (items.length !== 1 ? 's' : '');
+      document.getElementById('productGrid').innerHTML = items.map(buildViaCard).join('');
+      document.getElementById('catalogueCount').innerHTML =
+        items.length + ' item' + (items.length !== 1 ? 's' : '') +
+        ' · <a href="' + VIA_STORE + '" target="_blank" rel="noopener" style="color:var(--violet)">View store on VIA →</a>';
     }
 
     async function loadCatalogue() {
       try {
-        const res  = await fetch('/api/catalogue');
+        // Written by the deploy workflow from VIA's get_seller_products (VIA's MCP sends no CORS headers to browsers).
+        const res  = await fetch('/catalogue.json', { cache: 'no-cache' });
         const data = await res.json();
-        renderCatalogue(data.items || []);
+        renderCatalogue(data.products || []);
       } catch (e) {
         console.error('Catalogue load failed:', e);
+        document.getElementById('catalogueCount').textContent = '';
         document.getElementById('productGrid').innerHTML =
           '<div style="padding:40px;color:var(--text-dim);font-family:var(--mono);font-size:13px;grid-column:1/-1">' +
-          'Unable to load catalogue. <a href="/health" style="color:var(--violet)">Check server status →</a></div>';
+          'Unable to load catalogue. <a href="' + VIA_STORE + '" target="_blank" rel="noopener" style="color:var(--violet)">View the store on VIA →</a></div>';
       }
     }
 

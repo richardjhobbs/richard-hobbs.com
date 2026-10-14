@@ -3,6 +3,8 @@ name: Deploy to VPS
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '17 * * * *' # hourly catalogue refresh from VIA
   workflow_dispatch:
 
 concurrency: deploy
@@ -14,8 +16,28 @@ jobs:
       HOST: 89.167.89.219
       USER: agent
       WEB_ROOT: /var/www/richard-hobbs.com
+      VIA_HUB_MCP: https://app.getvia.xyz/mcp
     steps:
       - uses: actions/checkout@v4
+
+      - name: Fetch VIA catalogue
+        run: |
+          curl -fsS -m 30 -X POST "$VIA_HUB_MCP" \
+            -H 'Content-Type: application/json' \
+            -H 'Accept: application/json, text/event-stream' \
+            -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"get_seller_products","arguments":{"seller_mcp_url":"https://app.getvia.xyz/sellers/drhobbs-knowledge/mcp","limit":50}}}' \
+            > via-response.txt
+          python3 - <<'EOF'
+          import json
+          body = open('via-response.txt').read().strip()
+          if not body.startswith('{'):
+              body = next(l[5:] for l in body.splitlines() if l.startswith('data:'))
+          data = json.loads(json.loads(body)['result']['content'][0]['text'])
+          products = data['products']
+          json.dump({'products': products}, open('catalogue.json', 'w'))
+          print(f'{len(products)} products')
+          EOF
+          rm via-response.txt
 
       - name: Set up SSH
         run: |
@@ -25,16 +47,24 @@ jobs:
           ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts
 
       - name: Back up live files
+        if: github.event_name != 'schedule'
         run: |
           ssh "$USER@$HOST" "mkdir -p ~/backups/richard-hobbs.com && \
             tar czf ~/backups/richard-hobbs.com/\$(date -u +%Y%m%dT%H%M%SZ).tgz -C '$WEB_ROOT' ."
 
       - name: Upload site
+        if: github.event_name != 'schedule'
         # No --delete: the repo holds only the files managed here, the rest of the web root stays as is.
         run: |
           rsync -avz --exclude='.git*' --exclude='.github' --exclude='README.md' ./ "$USER@$HOST:$WEB_ROOT/"
+
+      - name: Upload catalogue only
+        if: github.event_name == 'schedule'
+        run: |
+          rsync -avz catalogue.json "$USER@$HOST:$WEB_ROOT/"
 
       - name: Verify
         run: |
           sleep 2
           curl -fsS https://richard-hobbs.com | grep -q 'getvia.xyz'
+          curl -fsS https://richard-hobbs.com/catalogue.json | python3 -c 'import sys,json; print(len(json.load(sys.stdin)["products"]), "products live")'
