@@ -9,7 +9,7 @@
 <link rel="icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -17,17 +17,15 @@
 <nav class="nav" id="nav" aria-label="Main">
   <div class="wrap">
     <a class="brand" href="./">
-      <img class="mk-light" src="assets/mark-light.png" alt="">
-      <img class="mk-dark" src="assets/mark.png" alt="">
-      <b>Pacific Risk Advisors</b>
+      <img src="assets/logo.png" alt="Pacific Risk Advisors">
     </a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navList">Menu</button>
     <ul id="navList">
       <li><a href="./#work">The work</a></li>
-      <li><a href="./#model">How PRA runs</a></li>
+      <li><a href="./#clients">Clients</a></li>
       <li><a href="./#reach">Reach</a></li>
       <li><a href="./#firm">The firm</a></li>
-      <li><a href="agents.html" aria-current="page">For agents</a></li>
+      <li><a href="./#model">How we work</a></li>
     </ul>
     <a class="btn primary" href="./#brief">Brief PRA</a>
   </div>
@@ -36,8 +34,8 @@
 <main>
 <header class="page-hero dark">
   <div class="wrap">
-    <p class="eyebrow">For agents · Model Context Protocol</p>
-    <h1 class="display" style="max-width:15ch">Send your agent. Ours is in.</h1>
+    <p class="eyebrow">For AI assistants · Model Context Protocol</p>
+    <h1 class="display" style="max-width:22ch">Connect your AI assistant to PRA.</h1>
     <p class="lede" style="max-width:56ch">If you work through an AI assistant, connect it to PRA. It can check what we do, where we work and which standards we assess against, then send a brief on your behalf. An advisor picks it up from there.</p>
     <div class="endpoint">
       <code id="endpoint">https://pra.richard-hobbs.com/mcp</code>
@@ -62,7 +60,7 @@
       <div class="pane">
         <header><span class="tag agent">Request</span><span id="pgTool">tools/call</span></header>
         <textarea id="pgArgs" spellcheck="false" aria-label="Tool arguments as JSON">{}</textarea>
-        <footer><button class="btn primary" id="pgRun" type="button">Run <span class="arr">→</span></button></footer>
+        <footer><button class="btn primary" id="pgRun" type="button">Run</button></footer>
       </div>
       <div class="pane">
         <header><span class="tag advisor">Response</span><span id="pgMeta"></span></header>

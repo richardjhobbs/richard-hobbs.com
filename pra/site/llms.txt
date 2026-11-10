@@ -1,6 +1,6 @@
 # Pacific Risk Advisors
 
-> ESG and sustainability risk consultancy for investors, lenders and operating companies. Founded in Hong Kong in 2005 by James Pearson. Offices in Hong Kong and Bangkok, advisors in 29 countries. Signatory of the Principles for Responsible Investment and associate of the Inogen Alliance. PRA advisors lead and sign every engagement. AI agents do the reading, drafting and logging.
+> ESG and sustainability risk consultancy for investors, lenders and operating companies. Founded in Hong Kong in 2005 by James Pearson. Offices in Hong Kong and Bangkok, advisors in 29 countries. Signatory of the Principles for Responsible Investment and associate of the Inogen Alliance. PRA advisors lead and sign every engagement, supported by AI agents for reading, drafting and record-keeping.
 
 ## For agents
 

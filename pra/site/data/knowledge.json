@@ -7,7 +7,7 @@
     "founder": "James Pearson, Chief Executive Officer",
     "summary": "Pacific Risk Advisors is an ESG and sustainability risk consultancy for the global investment and business community. Founded in Hong Kong in 2005 by James Pearson, who has advised on environmental and social risk in Asia since 1992 and in Europe from 1988. International advisors are paired with local resources to cover an investment from first screening to exit.",
     "position": "PRA bridges the gap between ESG operational and technical issues and maximising investor returns.",
-    "operating_statement": "PRA runs on agents. Software agents read, search, draft and log. PRA advisors scope the work, visit the sites, make the judgements and sign every deliverable.",
+    "operating_statement": "PRA advisors scope the work, visit the sites, make the judgements and sign every deliverable. AI agents support them with reading, searching, drafting and record-keeping.",
     "memberships": [
       "Signatory of the Principles for Responsible Investment (PRI)",
       "Associate of the Inogen Alliance, a global alliance of environmental, health, safety and sustainability consultancies"
@@ -240,7 +240,7 @@
     { "name": "Clean Future Technologies", "role": "Sister company distributing social and environmental products." }
   ],
   "operating_model": {
-    "principle": "Advisors lead. Agents do the legwork.",
+    "principle": "Advisors lead every engagement. AI agents support them.",
     "agents": [
       {
         "id": "memory",
@@ -307,8 +307,8 @@
       "id": "ai",
       "q": "How does PRA use AI agents?",
       "keywords": ["ai", "agent", "agents", "agentic", "artificial", "intelligence", "automation", "automated", "model", "llm", "claude", "how", "work", "technology", "software"],
-      "a": "Agents do the reading, searching, drafting and logging. Advisors do the scoping, the site work and the judgement, and sign every deliverable. In practice: an engagement memory holds a decade of PRA's proposals, budgets and projects as structured records, a proposal desk drafts scope and budget from the closest precedents, a document desk reads every file in the data room in 24 languages, and field capture logs site visits as they happen.",
-      "sources": [["How PRA runs", "#model"], ["Safeguards", "#safeguards"]]
+      "a": "PRA is introducing AI agents to support its advisors. Advisors do the scoping, the site work and the judgement, and sign every deliverable. Agents help with reading, searching, drafting and record-keeping. In practice: an engagement memory holds a decade of PRA's proposals, budgets and projects as structured records, a proposal desk drafts scope and budget from the closest precedents, a document desk reads every file in the data room in 24 languages, and field capture logs site visits as they happen.",
+      "sources": [["How we work", "#model"], ["Safeguards", "#safeguards"]]
     },
     {
       "id": "data",
@@ -329,7 +329,7 @@
       "q": "Can my AI agent talk to PRA directly?",
       "keywords": ["mcp", "server", "protocol", "connect", "api", "agent", "assistant", "directly", "talk", "integrate", "integration", "tool", "tools", "chatgpt", "copilot"],
       "a": "Yes. PRA runs a Model Context Protocol server. Point your assistant at the endpoint and it can look up PRA's capabilities, standards and coverage, search the public knowledge base, and send an enquiry on your behalf. No key is needed for public information.",
-      "sources": [["Agent door", "agents.html"]]
+      "sources": [["For AI assistants", "agents.html"]]
     },
     {
       "id": "esms",

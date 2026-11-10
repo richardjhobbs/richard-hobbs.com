@@ -100,24 +100,25 @@
       }));
     };
     k.stages.forEach((s, i) => {
-      const b = el('button', { role: 'tab', type: 'button', 'data-id': s.id }, `<small>STAGE ${pad(i + 1)}</small><b>${esc(s.label)}</b>`);
+      const b = el('button', { role: 'tab', type: 'button', 'data-id': s.id }, `<small>Stage ${i + 1}</small><b>${esc(s.label)}</b>`);
       b.addEventListener('click', () => show(s.id));
       tabs.append(b);
     });
     show(k.stages[0].id);
+    $$('[data-stage]').forEach(a => a.addEventListener('click', () => show(a.dataset.stage)));
 
-    // standards ticker (duplicated once for a seamless loop)
+    // standards
     const items = k.standards.map(s => `<li>${esc(s.name)}</li>`).join('');
-    $('#ticker').innerHTML = items + items;
+    $('#ticker').innerHTML = items;
 
     // agents and safeguards
-    $('#agents').innerHTML = k.operating_model.agents.map((a, i) => `
-      <div class="agent-row"><span class="n">${pad(i + 1)}</span><div>
+    $('#agents').innerHTML = k.operating_model.agents.filter(a => a.id !== 'door').map((a, i) => `
+      <div class="agent-row"><span class="n">${i + 1}</span><div>
         <h3>${esc(a.name)}</h3><p>${esc(a.does)}</p><p class="gain">${esc(a.client_benefit)}</p>
-        ${a.id === 'door' ? '<p style="margin-top:14px"><a class="btn ghost" href="agents.html">Connect your agent <span class="arr">→</span></a></p>' : ''}
+        ${a.id === 'door' ? '<p style="margin-top:14px"><a class="btn ghost" href="agents.html">Connect your agent</a></p>' : ''}
       </div></div>`).join('');
     $('#guards').innerHTML = k.operating_model.safeguards.map((g, i) =>
-      `<div class="guard"><span class="n">${pad(i + 1)}</span><h3>${esc(g.title)}</h3><p>${esc(g.detail)}</p></div>`).join('');
+      `<div class="guard"><span class="n">${i + 1}</span><h3>${esc(g.title)}</h3><p>${esc(g.detail)}</p></div>`).join('');
 
     // clients
     $('#clientsCapital').innerHTML = k.clients.capital.map(c => `<li>${esc(c)}</li>`).join('');
@@ -125,7 +126,7 @@
 
     // reach
     $('#regions').innerHTML = k.coverage.map(r => `
-      <div class="region"><h3>${esc(r.region)} <i>${pad(r.countries.length)}</i></h3>
+      <div class="region"><h3>${esc(r.region)} <i>${r.countries.length}</i></h3>
       <ul>${r.countries.map(c => `<li>${esc(c)}</li>`).join('')}</ul></div>`).join('');
     $('#partners').innerHTML = k.partners.map(p => `<div class="partner"><h3>${esc(p.name)}</h3><p>${esc(p.role)}</p></div>`).join('');
     const clocks = $('#clocks');
@@ -144,9 +145,9 @@
 
     // firm credentials
     $('#creds').innerHTML =
-      `<a href="${esc(k.firm.pri_listing)}" rel="noopener"><b>Signatory, Principles for Responsible Investment</b><span>Listing ↗</span></a>` +
+      `<a href="${esc(k.firm.pri_listing)}" rel="noopener"><b>Signatory, Principles for Responsible Investment</b><span>View listing</span></a>` +
       `<div><b>Associate, Inogen Alliance</b><span>Global EHS&amp;S network</span></div>` +
-      k.firm.documents.map(d => `<a href="${esc(d.url)}" rel="noopener"><b>${esc(d.title)}</b><span>PDF ↗</span></a>`).join('');
+      k.firm.documents.map(d => `<a href="${esc(d.url)}" rel="noopener"><b>${esc(d.title)}</b><span>PDF</span></a>`).join('');
 
     // offices
     $('#offices').innerHTML = k.firm.offices.map(o =>
@@ -181,24 +182,14 @@
       const { faq, country, cap, sector } = best(q);
       const partial = !faq && (cap || sector || country);
       body.replaceChildren(el('p', { class: 'msg-q' }, esc(q)));
-      const trace = el('ul', { class: 'trace' });
-      body.append(trace);
-      const lines = ['Searching published knowledge', faq ? `Matched: ${faq.q}` : partial ? 'Partial match in capabilities and coverage' : 'No published answer matched',
-        faq ? `${faq.sources.length} source${faq.sources.length > 1 ? 's' : ''} attached` : 'The rest goes to an advisor'];
-      for (const line of lines) {
-        const li = el('li', {}, esc(line));
-        trace.append(li);
-        await sleep(60);
-        li.classList.add('on');
-        await sleep(380);
-        if (mine !== token) return;
-      }
+      await sleep(350);
+      if (mine !== token) return;
       let text = faq ? faq.a : '';
       if (!faq && cap) text += `${cap.name}: ${cap.summary} `;
       if (!faq && sector) text += `PRA's clients include ${sector[0].toLowerCase() + sector.slice(1)}. `;
       if (country && !(faq && faq.a.includes(country.c))) text += `${faq ? ' ' : ''}PRA has advisors in ${country.c}. `;
       if (!faq) text += partial ? 'For the specifics, send a short brief and an advisor will reply.' : 'That is one for an advisor. Send a short brief and a person will reply, with the open questions listed.';
-      const out = el('p', { class: 'msg-a typing' });
+      const out = el('p', { class: 'msg-a' });
       body.append(out);
       if (still) out.textContent = text;
       else for (let i = 0; i <= text.length; i += 3) {
@@ -206,21 +197,21 @@
         await sleep(12);
         if (mine !== token) return;
       }
-      out.classList.remove('typing');
+      
       const srcs = el('div', { class: 'srcs' }, (faq ? faq.sources : [...(cap ? [[cap.name, '#work']] : []), ...(sector ? [['Clients', '#clients']] : []), ...(country ? [['Coverage', '#reach']] : []), ['Brief PRA', '#brief']])
-        .map(([label, href]) => `<a href="${esc(href)}">${esc(label)} ↗</a>`).join(''));
+        .map(([label, href]) => `<a href="${esc(href)}">${esc(label)}</a>`).join(''));
       body.append(srcs);
       if (user) return;
       await sleep(5200);
       if (mine === token && auto) cycle();
     };
 
-    const demo = k.faqs.filter(f => ['deal', 'ai', 'data', 'standards', 'mcp'].includes(f.id));
+    const demo = k.faqs.filter(f => ['deal', 'standards', 'esms', 'where'].includes(f.id));
     let idx = 0;
     const cycle = () => answer(demo[idx++ % demo.length].q, false);
 
     const chips = $('#askChips');
-    ['deal', 'ai', 'data', 'where', 'mcp'].forEach(id => {
+    ['deal', 'standards', 'esms', 'where', 'start'].forEach(id => {
       const f = k.faqs.find(x => x.id === id);
       const b = el('button', { type: 'button' }, esc(f.q));
       b.addEventListener('click', () => { auto = false; answer(f.q, true); });
