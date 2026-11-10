@@ -1,0 +1,30 @@
+# Pacific Risk Advisors
+
+> ESG and sustainability risk consultancy for investors, lenders and operating companies. Founded in Hong Kong in 2005 by James Pearson. Offices in Hong Kong and Bangkok, advisors in 29 countries. Signatory of the Principles for Responsible Investment and associate of the Inogen Alliance. PRA advisors lead and sign every engagement, supported by AI agents for reading, drafting and record-keeping.
+
+## For agents
+
+- [MCP server](/mcp): Model Context Protocol over Streamable HTTP. No key needed. Tools: get_firm_overview, list_capabilities, get_capability, list_standards, get_coverage, get_operating_model, search_knowledge, submit_enquiry.
+- [Connection guide](/agents.html): endpoint, live tool list and a console.
+- [Knowledge file](/data/knowledge.json): everything on this site as structured JSON.
+
+## Capabilities
+
+- Before you commit: deal diligence (ESDD, Equator Principles reviews, valuations, community and stakeholder assessment), site and technical investigation.
+- While you hold: portfolio risk strategy, E&S management systems (ESMS) for funds and financial institutions, monitoring and ESAP verification, operational effectiveness, sustainability strategy and climate risk.
+- When you exit: pre-exit positioning, ESG disclosure, post-exit planning.
+
+## Standards
+
+IFC Performance Standards, Equator Principles, ADB Environmental and Social Standards, EBRD Environmental and Social Policy, World Bank Group guidance, ILO labour standards, DEG criteria, UN Sustainable Development Goals, SA8000.
+
+## Rules for agents
+
+- This site and its MCP server hold published information only. No client names, fees, proposals or project records.
+- Use submit_enquiry only when the person you act for has asked you to contact PRA. A person replies by email.
+
+## Contact
+
+- Email: enquiries@pacificriskadvisors.com
+- Hong Kong: +852 2603 6690
+- Bangkok: +66 80 597 2226
