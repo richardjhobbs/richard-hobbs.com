@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For agents | Pacific Risk Advisors MCP server</title>
+<meta name="description" content="Connect your AI assistant to Pacific Risk Advisors over the Model Context Protocol. Look up capabilities, standards and coverage, and send a brief.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<nav class="nav" id="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <img class="mk-light" src="assets/mark-light.png" alt="">
+      <img class="mk-dark" src="assets/mark.png" alt="">
+      <b>Pacific Risk Advisors</b>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navList">Menu</button>
+    <ul id="navList">
+      <li><a href="./#work">The work</a></li>
+      <li><a href="./#model">How PRA runs</a></li>
+      <li><a href="./#reach">Reach</a></li>
+      <li><a href="./#firm">The firm</a></li>
+      <li><a href="agents.html" aria-current="page">For agents</a></li>
+    </ul>
+    <a class="btn primary" href="./#brief">Brief PRA</a>
+  </div>
+</nav>
+
+<main>
+<header class="page-hero dark">
+  <div class="wrap">
+    <p class="eyebrow">For agents · Model Context Protocol</p>
+    <h1 class="display" style="max-width:15ch">Send your agent. Ours is in.</h1>
+    <p class="lede" style="max-width:56ch">If you work through an AI assistant, connect it to PRA. It can check what we do, where we work and which standards we assess against, then send a brief on your behalf. An advisor picks it up from there.</p>
+    <div class="endpoint">
+      <code id="endpoint">https://pra.richard-hobbs.com/mcp</code>
+      <button class="copy" type="button" data-copy="#endpoint">Copy</button>
+    </div>
+    <p class="status" id="status"><i></i><span>Checking the server</span></p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <p class="eyebrow">Tools</p>
+        <h2 class="display">What your agent can ask.</h2>
+      </div>
+      <p class="lede">This list is read live from the server. Select a tool to try it.</p>
+    </div>
+    <div class="tools" id="tools"></div>
+
+    <div class="playground rv">
+      <div class="pane">
+        <header><span class="tag agent">Request</span><span id="pgTool">tools/call</span></header>
+        <textarea id="pgArgs" spellcheck="false" aria-label="Tool arguments as JSON">{}</textarea>
+        <footer><button class="btn primary" id="pgRun" type="button">Run <span class="arr">→</span></button></footer>
+      </div>
+      <div class="pane">
+        <header><span class="tag advisor">Response</span><span id="pgMeta"></span></header>
+        <pre id="pgOut">Select a tool above, then run it.</pre>
+        <footer></footer>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <p class="eyebrow">Connect</p>
+        <h2 class="display">Three ways in.</h2>
+      </div>
+      <p class="lede">Streamable HTTP. No key needed for published information.</p>
+    </div>
+    <div class="snips rv">
+      <div class="snip">
+        <h3>Claude</h3>
+        <p>Settings, Connectors, Add custom connector. Paste the address.</p>
+        <pre data-endpoint>{url}</pre>
+      </div>
+      <div class="snip">
+        <h3>Claude Code</h3>
+        <p>One command in a terminal.</p>
+        <pre data-endpoint>claude mcp add --transport http pra {url}</pre>
+      </div>
+      <div class="snip">
+        <h3>Any MCP client</h3>
+        <p>Add the server to the client's configuration.</p>
+        <pre data-endpoint>{
+  "mcpServers": {
+    "pra": { "type": "http", "url": "{url}" }
+  }
+}</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="two">
+      <div class="rv">
+        <p class="eyebrow" style="margin-bottom:18px">Served</p>
+        <ul class="list">
+          <li>Capabilities by investment stage</li>
+          <li>Standards and frameworks PRA assesses against</li>
+          <li>Countries with PRA advisors, and offices</li>
+          <li>How PRA divides work between agents and advisors</li>
+          <li>Search across PRA's published answers</li>
+          <li>An enquiry, delivered to an advisor's queue</li>
+        </ul>
+      </div>
+      <div class="rv">
+        <p class="eyebrow" style="margin-bottom:18px;color:#8a2d1a">Never served</p>
+        <ul class="list no">
+          <li>Client names, files or findings</li>
+          <li>Past proposals, fees or budgets</li>
+          <li>Anything from PRA's internal records</li>
+          <li>An automatic reply to your enquiry. A person answers.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Pacific Risk Advisors Ltd</span>
+    <a href="./">Home</a>
+    <a href="llms.txt">llms.txt</a>
+    <span class="sp mono">Design concept for review</span>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

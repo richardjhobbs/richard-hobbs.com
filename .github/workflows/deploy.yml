@@ -56,7 +56,23 @@ jobs:
         if: github.event_name != 'schedule'
         # No --delete: the repo holds only the files managed here, the rest of the web root stays as is.
         run: |
-          rsync -avz --exclude='.git*' --exclude='.github' --exclude='README.md' ./ "$USER@$HOST:$WEB_ROOT/"
+          rsync -avz --exclude='.git*' --exclude='.github' --exclude='README.md' --exclude='/pra' ./ "$USER@$HOST:$WEB_ROOT/"
+
+      - name: Upload PRA review site
+        if: github.event_name != 'schedule'
+        # pra.richard-hobbs.com has its own web root. Until pra/deploy/setup.sh has been run once
+        # on the VPS, only the setup files are uploaded and the site copy is skipped.
+        env:
+          PRA_ROOT: /var/www/pra.richard-hobbs.com
+        run: |
+          rsync -avz pra/deploy/ "$USER@$HOST:pra-deploy/"
+          if ssh "$USER@$HOST" "test -w '$PRA_ROOT'"; then
+            rsync -avz --delete pra/site/ "$USER@$HOST:$PRA_ROOT/site/"
+            rsync -avz --exclude='enquiries.jsonl' pra/mcp/ "$USER@$HOST:$PRA_ROOT/mcp/"
+            curl -fsS https://pra.richard-hobbs.com/healthz || echo "::warning::PRA site uploaded but /healthz did not answer. Restart pra-mcp on the VPS."
+          else
+            echo "::warning::$PRA_ROOT is not set up. Run 'bash ~/pra-deploy/setup.sh' on the VPS once, then re-run this workflow."
+          fi
 
       - name: Upload catalogue only
         if: github.event_name == 'schedule'

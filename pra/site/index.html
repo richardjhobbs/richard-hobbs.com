@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pacific Risk Advisors | ESG risk advisory, run on agents</title>
+<meta name="description" content="Pacific Risk Advisors is an ESG and sustainability risk consultancy for investors, lenders and operators. Advisors lead every engagement. AI agents do the reading, drafting and logging.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Pacific Risk Advisors">
+<meta property="og:description" content="ESG risk advisory that runs on agents and answers to advisors.">
+<meta property="og:image" content="assets/og.png">
+<link rel="icon" href="assets/favicon.png">
+<link rel="alternate" type="text/plain" href="llms.txt" title="Summary for AI agents">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<nav class="nav" id="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img class="mk-light" src="assets/mark-light.png" alt="">
+      <img class="mk-dark" src="assets/mark.png" alt="">
+      <b>Pacific Risk Advisors</b>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navList">Menu</button>
+    <ul id="navList">
+      <li><a href="#work">The work</a></li>
+      <li><a href="#model">How PRA runs</a></li>
+      <li><a href="#reach">Reach</a></li>
+      <li><a href="#firm">The firm</a></li>
+      <li><a href="agents.html">For agents</a></li>
+    </ul>
+    <a class="btn primary" href="#brief">Brief PRA</a>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- HERO -->
+<header class="hero dark">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">ESG and sustainability risk · Hong Kong · Since 2005</p>
+        <h1 class="display">ESG risk advisory that runs on <em>agents</em> and answers to <span class="adv">advisors</span>.</h1>
+        <p class="lede">PRA bridges the gap between ESG operational and technical issues and maximising investor returns. Our advisors make the judgements. Our agents read every page behind them.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#brief">Brief PRA <span class="arr">→</span></a>
+          <a class="btn ghost" href="#model">See how PRA runs</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="console" aria-label="Ask PRA">
+          <div class="console-bar"><i class="pulse"></i><span>ask.pra</span><span>published knowledge</span></div>
+          <div class="console-body" id="consoleBody" aria-live="polite"></div>
+          <form class="ask" id="askForm" autocomplete="off">
+            <label class="sr" for="askInput">Ask PRA a question</label>
+            <input id="askInput" type="text" placeholder="Ask about a deal, a standard, a country">
+            <button type="submit" aria-label="Ask">↑</button>
+          </form>
+        </div>
+        <div class="chips" id="askChips"></div>
+        <p class="console-note">Answers come from PRA's published information. For anything about your own deal, an advisor replies.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat"><b data-count="2005" data-plain>2005</b><span>Founded in Hong Kong by James Pearson</span></div>
+      <div class="stat"><b data-count="29">29</b><span>Countries with PRA advisors on the ground</span></div>
+      <div class="stat"><b data-count-since="1992">34</b><span>Years advising on E&amp;S risk in Asia</span></div>
+      <div class="stat"><b data-count="1">1</b><span>Named advisor's signature on every deliverable</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <p class="eyebrow">The work</p>
+        <h2 class="display">One risk practice, across the life of an investment.</h2>
+      </div>
+      <p class="lede">Scope follows the size and maturity of the target. Pick the point you are at.</p>
+    </div>
+    <div class="stage-tabs rv" role="tablist" aria-label="Investment stage" id="stageTabs"></div>
+    <p class="stage-sum" id="stageSum"></p>
+    <div class="caps" id="caps" role="tabpanel"></div>
+  </div>
+</section>
+
+<!-- STANDARDS -->
+<div id="standards" class="ticker" aria-label="Standards PRA assesses against">
+  <ul id="ticker"></ul>
+</div>
+
+<!-- MODEL -->
+<section id="model" class="dark">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <p class="eyebrow">How PRA runs</p>
+        <h2 class="display">Advisors lead. Agents do the legwork.</h2>
+      </div>
+      <p class="lede">A due diligence used to spend most of its hours on reading and retyping. PRA has handed that to software, so the people you hired spend their time on your sites and your decisions.</p>
+    </div>
+
+    <div class="model-grid">
+      <div class="run rv" id="run">
+        <div class="run-bar"><i class="pulse"></i><span>An engagement, start to finish</span><button id="replay" type="button">Replay</button></div>
+        <div class="progress"><i id="runBar"></i></div>
+        <ol class="steps" id="steps">
+          <li class="you"><div><span class="tag you">You</span><p>Send a brief or terms of reference.</p></div></li>
+          <li class="agent"><div><span class="tag agent">Agent</span><p>Reads the brief in full and finds the closest past PRA engagements.</p></div></li>
+          <li class="advisor"><div><span class="tag advisor">Advisor</span><p>A director sets the scope, the team and the fee.</p></div></li>
+          <li class="agent"><div><span class="tag agent">Agent</span><p>Reads the data room: every file, scans and other languages included.</p></div></li>
+          <li class="advisor"><div><span class="tag advisor">Advisor</span><p>Visits the sites with a local specialist. Interviews management.</p></div></li>
+          <li class="agent"><div><span class="tag agent">Agent</span><p>Logs photos, voice notes and observations to the engagement the same day.</p></div></li>
+          <li class="agent"><div><span class="tag agent">Agent</span><p>Assembles the draft. Every finding links to its evidence.</p></div></li>
+          <li class="advisor"><div><span class="tag advisor">Advisor</span><p>Reviews, makes the judgement calls and signs.</p></div></li>
+          <li class="you"><div><span class="tag you">You</span><p>Receive a report you can trace line by line.</p></div></li>
+        </ol>
+      </div>
+
+      <div class="agents rv" id="agents"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMORY -->
+<section id="memory">
+  <div class="wrap">
+    <div class="memory">
+      <div class="memory-copy rv">
+        <p class="eyebrow">Engagement memory</p>
+        <h2 class="display">Your brief meets a decade of PRA's own work.</h2>
+        <p class="lede" style="max-width:52ch">Ten years of proposals, budgets and projects are held as one structured record per engagement. When a new request arrives, an analyst agent finds the jobs most like it before anyone writes a word.</p>
+        <ul class="gains">
+          <li>Scope drawn from what similar engagements needed, not from a template.</li>
+          <li>Fees set against the real effort of comparable work.</li>
+          <li>The advisors who have done it before, put forward first.</li>
+          <li>Every figure in the proposal traceable to its source file.</li>
+        </ul>
+      </div>
+
+      <div class="match rv" id="match" aria-label="Illustration of a brief matched to past engagements">
+        <div class="match-brief"><small>New brief</small>E&amp;S due diligence on a food processor with four sites in Vietnam, for a private equity fund, to IFC Performance Standards.</div>
+        <small class="k">Closest past engagements</small>
+        <div class="rec"><div><b>ESDD · Food and beverage · Vietnam</b><br><span>Private equity · IFC PS · 3 sites</span></div><span class="pct">94%</span><div class="bar"><i data-w="94"></i></div></div>
+        <div class="rec"><div><b>ESDD · Agri processing · Thailand</b><br><span>Private equity · IFC PS · 5 sites</span></div><span class="pct">87%</span><div class="bar"><i data-w="87"></i></div></div>
+        <div class="rec"><div><b>ESAP monitoring · Manufacturing · Vietnam</b><br><span>Development finance · IFC PS · 2 sites</span></div><span class="pct">71%</span><div class="bar"><i data-w="71"></i></div></div>
+        <p class="foot">Illustration. Past engagements stay confidential and are never shown to another client.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFEGUARDS -->
+<section id="safeguards" class="alt">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <p class="eyebrow">Safeguards</p>
+        <h2 class="display">What the agents may not do.</h2>
+      </div>
+      <p class="lede">The rules are fixed and apply to every engagement.</p>
+    </div>
+    <div class="guards rv" id="guards"></div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <p class="eyebrow">Who PRA works for</p>
+        <h2 class="display">Capital on one side. The businesses it backs on the other.</h2>
+      </div>
+      <p class="lede">Adding value and addressing sustainability issues are no longer mutually exclusive.</p>
+    </div>
+    <div class="cols rv">
+      <div class="col"><h3>Investors and lenders</h3><ul id="clientsCapital"></ul></div>
+      <div class="col"><h3>Operating sectors</h3><ul id="clientsIndustry"></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- REACH -->
+<section id="reach" class="dark">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <p class="eyebrow">Reach</p>
+        <h2 class="display">International advisors, paired with people who know the ground.</h2>
+      </div>
+      <div class="clocks" id="clocks"></div>
+    </div>
+    <div class="regions rv" id="regions"></div>
+    <p class="sub">Alliances and partners</p>
+    <div class="partners rv" id="partners"></div>
+  </div>
+</section>
+
+<!-- FIRM -->
+<section id="firm">
+  <div class="wrap">
+    <div class="firm">
+      <figure class="rv">
+        <p class="eyebrow" style="margin-bottom:26px">The firm</p>
+        <blockquote>“PRA bridges the gap between ESG operational and technical issues and maximising investor returns.”</blockquote>
+        <cite>James Pearson, Chief Executive Officer</cite>
+      </figure>
+      <div class="firm-copy rv">
+        <p>Pacific Risk Advisors was founded in 2005 by James Pearson, who has advised on environmental and social risk in Asia since 1992 and in Europe from 1988. The firm has grown into one of Asia's leading specialists in ESG and sustainability risk for the global investment and business community.</p>
+        <p>The approach is pro-investment. Identify, manage and mitigate ESG risk so that the pressure comes off the fund manager and the portfolio company, and the value of the investment rises with it.</p>
+        <p>All staff and contractors follow the PRA Principle Codes of Business, which build ESG factors into every service the firm provides.</p>
+        <div class="creds" id="creds"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRIEF -->
+<section id="brief" class="dark">
+  <div class="wrap">
+    <div class="brief">
+      <div class="brief-copy rv">
+        <p class="eyebrow">Brief PRA</p>
+        <h2 class="display">Tell us the target, the country and the standard.</h2>
+        <p class="lede">An advisor reads every brief. You get a scoped proposal with the open questions listed.</p>
+        <div id="offices" style="display:grid;gap:18px"></div>
+      </div>
+      <form class="card rv" id="briefForm" novalidate>
+        <label>Name<input type="text" name="name" required autocomplete="name"></label>
+        <label>Work email<input type="email" name="email" required autocomplete="email"></label>
+        <label>Organisation<input type="text" name="organisation" autocomplete="organization"></label>
+        <label>Countries<input type="text" name="countries" placeholder="Vietnam, Thailand"></label>
+        <label>Standard to meet<input type="text" name="standard" placeholder="IFC Performance Standards"></label>
+        <label>Timetable<input type="text" name="timetable" placeholder="Report by end of January"></label>
+        <label class="full">What do you need?<textarea name="summary" required placeholder="The target or portfolio, the sites, and what the investment committee needs to see."></textarea></label>
+        <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        <div class="full form-foot">
+          <button class="btn solid" type="submit">Send brief <span class="arr">→</span></button>
+          <p>Please leave confidential documents out of this form. We will set up a secure route for the data room.</p>
+        </div>
+        <div class="full form-msg" id="briefMsg" hidden></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Pacific Risk Advisors Ltd</span>
+    <a href="agents.html">MCP server</a>
+    <a href="llms.txt">llms.txt</a>
+    <a href="https://www.linkedin.com/company/pacific-risk-advisors/" rel="noopener">LinkedIn</a>
+    <span class="sp mono">Design concept for review</span>
+  </div>
+</footer>
+
+<noscript><p style="padding:20px">This page lists its content with JavaScript. A plain text summary is at <a href="llms.txt">llms.txt</a>.</p></noscript>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

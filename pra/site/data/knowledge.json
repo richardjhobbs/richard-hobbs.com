@@ -1,0 +1,370 @@
+{
+  "version": "2026-11-10",
+  "firm": {
+    "name": "Pacific Risk Advisors Ltd",
+    "short": "PRA",
+    "founded": 2005,
+    "founder": "James Pearson, Chief Executive Officer",
+    "summary": "Pacific Risk Advisors is an ESG and sustainability risk consultancy for the global investment and business community. Founded in Hong Kong in 2005 by James Pearson, who has advised on environmental and social risk in Asia since 1992 and in Europe from 1988. International advisors are paired with local resources to cover an investment from first screening to exit.",
+    "position": "PRA bridges the gap between ESG operational and technical issues and maximising investor returns.",
+    "operating_statement": "PRA runs on agents. Software agents read, search, draft and log. PRA advisors scope the work, visit the sites, make the judgements and sign every deliverable.",
+    "memberships": [
+      "Signatory of the Principles for Responsible Investment (PRI)",
+      "Associate of the Inogen Alliance, a global alliance of environmental, health, safety and sustainability consultancies"
+    ],
+    "offices": [
+      {
+        "city": "Hong Kong",
+        "address": "1/F, 1 Queen's Road West, Sheung Wan, Hong Kong",
+        "phone": "+852 2603 6690",
+        "timezone": "Asia/Hong_Kong"
+      },
+      {
+        "city": "Bangkok",
+        "address": "140/36 ITF Tower, 17/F, Silom Road, Suriyawongs, Bangrak, Bangkok 10500, Thailand",
+        "phone": "+66 80 597 2226",
+        "timezone": "Asia/Bangkok"
+      }
+    ],
+    "email": "enquiries@pacificriskadvisors.com",
+    "linkedin": "https://www.linkedin.com/company/pacific-risk-advisors/",
+    "pri_listing": "https://www.unpri.org/signatory-directory/pacific-risk-advisors-ltd-pra/1606.article",
+    "documents": [
+      {
+        "title": "Capability Statement (January 2026)",
+        "url": "https://www.pacificriskadvisors.com/s/PRA-Capability-Statement-ENG-Jan-26.pdf"
+      },
+      {
+        "title": "ESG Advisory Brochure (May 2026)",
+        "url": "https://www.pacificriskadvisors.com/s/PRA-ESG-Advisory-General-May-2026.pdf"
+      },
+      {
+        "title": "Award Acknowledgements 2020 to 2025",
+        "url": "https://www.pacificriskadvisors.com/s/List-of-PRA-Awards-Updated-P-23-Jul-2025.pdf"
+      }
+    ]
+  },
+  "stages": [
+    {
+      "id": "commit",
+      "label": "Before you commit",
+      "summary": "Know what you are buying. Diligence on the target, its sites and its neighbours, measured against the standards your investors and lenders apply."
+    },
+    {
+      "id": "hold",
+      "label": "While you hold",
+      "summary": "Put the findings to work. Systems, action plans and monitoring that reduce risk across the holding period and show it in the reporting."
+    },
+    {
+      "id": "exit",
+      "label": "When you exit",
+      "summary": "Carry the record to the buyer. Disclosure, positioning and planning that let the ESG work support the price."
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "deal-diligence",
+      "name": "Deal diligence",
+      "stage": "commit",
+      "summary": "Environmental and social due diligence on a target and its operations, with the risks costed and the opportunities named.",
+      "includes": [
+        "Environmental and social due diligence (ESDD)",
+        "ESG research and analysis",
+        "Plant condition and valuation surveys",
+        "CAPEX and business valuations",
+        "Community impact assessments",
+        "Public consultation and stakeholder analysis",
+        "Equator Principles reviews",
+        "Comparison against development finance criteria: IFC, World Bank, ADB, ILO and DEG"
+      ]
+    },
+    {
+      "id": "site-investigation",
+      "name": "Site and technical investigation",
+      "stage": "commit",
+      "summary": "Engineers and specialists on the ground when the desk review is not enough.",
+      "includes": [
+        "Site investigation and remediation",
+        "Sampling and analysis",
+        "HAZOP and HAZID studies",
+        "Plant valuation",
+        "Occupational health and safety reviews",
+        "Occupational monitoring",
+        "Workplace ergonomics"
+      ]
+    },
+    {
+      "id": "risk-strategy",
+      "name": "Portfolio risk strategy",
+      "stage": "hold",
+      "summary": "Root causes found, mitigation advised, liabilities costed. For a single asset or a whole portfolio.",
+      "includes": [
+        "Operational risk assessment and root cause analysis",
+        "Risk mitigation advice and training",
+        "Cost estimates for compliance and remedial actions",
+        "Performance and audit reports",
+        "Portfolio advice for fund managers and landlords",
+        "Alignment with IFC, EBRD, ADB, ILO, the Equator Principles and the UN Sustainable Development Goals"
+      ]
+    },
+    {
+      "id": "management-systems",
+      "name": "E&S management systems",
+      "stage": "hold",
+      "summary": "Environmental and Social Management Systems built for funds and financial institutions, so investments meet international investor criteria.",
+      "includes": [
+        "Tailor-made ESMS for the financial sector",
+        "ESMS frameworks for funds and financial institutions through technical assistance programmes",
+        "Assurance and audit programmes",
+        "Portfolio and supply chain risk management",
+        "Capacity building and training"
+      ]
+    },
+    {
+      "id": "monitoring",
+      "name": "Monitoring and verification",
+      "stage": "hold",
+      "summary": "Proof that the action plan is being followed, reported in the form investors and regulators ask for.",
+      "includes": [
+        "ESG reporting and monitoring",
+        "ESAP verification",
+        "Portfolio ESG profiling and reporting",
+        "Post-investment risk mitigation and oversight",
+        "Investor ESG representation"
+      ]
+    },
+    {
+      "id": "operations",
+      "name": "Operational effectiveness",
+      "stage": "hold",
+      "summary": "A review of operations from a sustainability perspective that finds the inefficiencies other audits miss, then a structured programme to fix them with little disruption.",
+      "includes": [
+        "Review of current operations and governance",
+        "Root cause analysis of inefficiencies",
+        "A structured improvement programme",
+        "Implementation support inside the existing workflow"
+      ]
+    },
+    {
+      "id": "sustainability-strategy",
+      "name": "Sustainability strategy",
+      "stage": "hold",
+      "summary": "Corporate strategy on sustainability, climate, energy, health and safety, and social responsibility, tied to how the business runs day to day.",
+      "includes": [
+        "Sustainable Development Goals alignment",
+        "Climate risk assessments",
+        "NGO and stakeholder engagement",
+        "Socially responsible investing",
+        "Supply chain vulnerabilities",
+        "Energy efficiency",
+        "Regulatory change and compliance",
+        "Diversity, equality and inclusion",
+        "SA8000"
+      ]
+    },
+    {
+      "id": "exit-readiness",
+      "name": "Exit readiness",
+      "stage": "exit",
+      "summary": "The ESG record prepared for sale: managed, positioned and disclosed, with a plan for what follows.",
+      "includes": [
+        "Pre-exit management, positioning and support",
+        "ESG disclosure",
+        "Post-exit ESG planning and strategy",
+        "Preparation for sustainability indexes such as the Hang Seng Sustainability Index and FTSE4Good"
+      ]
+    }
+  ],
+  "standards": [
+    { "name": "IFC Performance Standards", "body": "International Finance Corporation" },
+    { "name": "Equator Principles", "body": "Equator Principles Association" },
+    { "name": "ADB Environmental and Social Standards", "body": "Asian Development Bank" },
+    { "name": "EBRD Environmental and Social Policy", "body": "European Bank for Reconstruction and Development" },
+    { "name": "World Bank Group guidance", "body": "World Bank" },
+    { "name": "ILO labour standards", "body": "International Labour Organization" },
+    { "name": "DEG criteria", "body": "Deutsche Investitions- und Entwicklungsgesellschaft" },
+    { "name": "UN Sustainable Development Goals", "body": "United Nations" },
+    { "name": "Principles for Responsible Investment", "body": "PRI" },
+    { "name": "SA8000", "body": "Social Accountability International" }
+  ],
+  "clients": {
+    "capital": [
+      "National and international development finance institutions",
+      "Banks and non-bank financial institutions",
+      "Insurance and pension funds",
+      "Private equity funds",
+      "Debt, special situations and credit funds",
+      "Real estate and infrastructure funds"
+    ],
+    "industry": [
+      "Renewable energy and green industries",
+      "Telecommunications and electronics",
+      "Mining and extractives",
+      "Processing and chemicals",
+      "Manufacturing and production",
+      "Waste management",
+      "Electronic asset recovery",
+      "Distribution, supply chain and logistics",
+      "Property management"
+    ]
+  },
+  "coverage": [
+    {
+      "region": "Asia Pacific",
+      "countries": ["Australia", "Cambodia", "China", "India", "Indonesia", "Japan", "Malaysia", "Mongolia", "Philippines", "Singapore", "South Korea", "Taiwan", "Thailand", "Vietnam"]
+    },
+    {
+      "region": "Middle East and Caucasus",
+      "countries": ["Armenia", "Jordan", "Qatar", "UAE"]
+    },
+    {
+      "region": "Africa",
+      "countries": ["Egypt", "Kenya", "South Africa"]
+    },
+    {
+      "region": "Europe",
+      "countries": ["Germany", "United Kingdom"]
+    },
+    {
+      "region": "Americas",
+      "countries": ["Brazil", "Chile", "Costa Rica", "El Salvador", "Peru", "United States"]
+    }
+  ],
+  "partners": [
+    { "name": "Inogen Alliance", "role": "Global alliance of environmental, health, safety and sustainability consultancies. PRA is an associate." },
+    { "name": "Intensel", "role": "Climate analytics from Hong Kong: asset-level climate risk and Climate Value-at-Risk across flood, typhoon, heat, sea level rise and more." },
+    { "name": "InvestAssure", "role": "UK research group monitoring environmental, social and ethical aspects of portfolios and supply chains in Asia and emerging markets." },
+    { "name": "Phusjon Group", "role": "Censere, Stratiqa and Ausus Advisory: valuation, transaction advisory, forensic accounting and financial due diligence." },
+    { "name": "Social Impact Partners", "role": "Hong Kong venture philanthropy for growth-stage social purpose organisations." },
+    { "name": "Li Tong Group", "role": "Reverse supply chain management, WEEE and asset recovery for technology, electronics and telecom." },
+    { "name": "Clean Future Technologies", "role": "Sister company distributing social and environmental products." }
+  ],
+  "operating_model": {
+    "principle": "Advisors lead. Agents do the legwork.",
+    "agents": [
+      {
+        "id": "memory",
+        "name": "Engagement memory",
+        "does": "Holds a decade of PRA proposals, budgets and project records as one structured record per engagement. Every figure names the file it came from.",
+        "client_benefit": "Your brief is matched to the closest past engagements, so scope, team and fee rest on PRA's real history and not on one person's recall."
+      },
+      {
+        "id": "proposal",
+        "name": "Proposal desk",
+        "does": "Reads your terms of reference in full, researches the target from public sources, and drafts scope, programme and budget from the closest precedents.",
+        "client_benefit": "A scoped proposal reaches you sooner, with the open questions listed and the right person named against each."
+      },
+      {
+        "id": "documents",
+        "name": "Document desk",
+        "does": "Reads data room files in full: Word, PDF, Excel, scans and images, in 24 languages, with translation. Revisions come back as tracked changes.",
+        "client_benefit": "Nothing in the data room goes unread because it was long, scanned or in another language."
+      },
+      {
+        "id": "field",
+        "name": "Field capture",
+        "does": "Logs site visit photos, voice notes and observations to the engagement on the day they are taken.",
+        "client_benefit": "Findings are written up from a complete record of the visit, and each one links back to what was seen."
+      },
+      {
+        "id": "door",
+        "name": "Agent door",
+        "does": "A Model Context Protocol server that answers your own AI agents on PRA's capabilities, standards and coverage, and takes an enquiry on your behalf.",
+        "client_benefit": "If your team works through an AI assistant, it can brief PRA without a form or a phone call."
+      }
+    ],
+    "safeguards": [
+      { "title": "A named advisor signs every deliverable", "detail": "Agents draft. PRA advisors review, decide and put their name to the work." },
+      { "title": "Nothing leaves PRA without approval", "detail": "Proposals, reports and messages wait in a queue until a person releases them." },
+      { "title": "Every figure cites its source", "detail": "Each number and finding traces to the file, page or cell it came from. Gaps are flagged, never filled by guesswork." },
+      { "title": "Your files stay under PRA's control", "detail": "Client documents sit on PRA's own systems under PRA's permissions. When a model reads a document it does so under commercial terms that bar training on it." },
+      { "title": "Public and confidential are kept apart", "detail": "The public agent and the MCP server see published information only. Client work is never within their reach." }
+    ]
+  },
+  "faqs": [
+    {
+      "id": "what",
+      "q": "What does PRA do?",
+      "keywords": ["what", "do", "does", "pra", "about", "services", "offer", "overview", "who"],
+      "a": "PRA advises investors, lenders and operating companies on environmental, social and governance risk across the life of an investment. Before a deal: due diligence on the target and its sites. During the hold: management systems, action plans and monitoring. At exit: disclosure and positioning. The firm was founded in Hong Kong in 2005 and has advisors in 29 countries.",
+      "sources": [["Capabilities", "#work"], ["Firm", "#firm"]]
+    },
+    {
+      "id": "deal",
+      "q": "We are a fund acquiring a manufacturer in Vietnam. What would you cover?",
+      "keywords": ["fund", "acquiring", "acquisition", "acquire", "buy", "buying", "deal", "target", "diligence", "esdd", "manufacturer", "factory", "vietnam", "private", "equity", "transaction", "invest", "investment"],
+      "a": "A typical scope has three parts. One: a desk review of the target's permits, records, media and regulatory history. Two: site visits by a PRA advisor with a local specialist, covering environmental, health and safety, labour and community issues. Three: a report that measures the findings against the standards your investors apply, such as the IFC Performance Standards, with each risk costed and an action plan. PRA has advisors in Vietnam.",
+      "sources": [["Deal diligence", "#work"], ["Coverage", "#reach"], ["Standards", "#standards"]]
+    },
+    {
+      "id": "standards",
+      "q": "Which standards do you assess against?",
+      "keywords": ["standard", "standards", "framework", "frameworks", "ifc", "equator", "adb", "ebrd", "ilo", "sdg", "sdgs", "performance", "principles", "criteria", "benchmark", "world", "bank", "deg", "sa8000"],
+      "a": "Most often the IFC Performance Standards, the Equator Principles, the ADB Environmental and Social Standards and the EBRD policy, together with ILO labour standards, World Bank Group guidance, DEG criteria and the UN Sustainable Development Goals. PRA is a signatory of the Principles for Responsible Investment.",
+      "sources": [["Standards", "#standards"]]
+    },
+    {
+      "id": "ai",
+      "q": "How does PRA use AI agents?",
+      "keywords": ["ai", "agent", "agents", "agentic", "artificial", "intelligence", "automation", "automated", "model", "llm", "claude", "how", "work", "technology", "software"],
+      "a": "Agents do the reading, searching, drafting and logging. Advisors do the scoping, the site work and the judgement, and sign every deliverable. In practice: an engagement memory holds a decade of PRA's proposals, budgets and projects as structured records, a proposal desk drafts scope and budget from the closest precedents, a document desk reads every file in the data room in 24 languages, and field capture logs site visits as they happen.",
+      "sources": [["How PRA runs", "#model"], ["Safeguards", "#safeguards"]]
+    },
+    {
+      "id": "data",
+      "q": "Is my data used to train AI models?",
+      "keywords": ["data", "train", "training", "privacy", "confidential", "confidentiality", "secure", "security", "safe", "nda", "files", "documents", "protect", "trained"],
+      "a": "No. Client documents sit on PRA's own systems under PRA's permissions. When a model reads a document it does so under commercial terms that bar training on it. The public agent on this site and the MCP server see published information only, never client work. A named advisor reviews and signs everything that leaves the firm.",
+      "sources": [["Safeguards", "#safeguards"]]
+    },
+    {
+      "id": "where",
+      "q": "Where do you have advisors?",
+      "keywords": ["where", "countries", "country", "coverage", "office", "offices", "location", "locations", "region", "asia", "africa", "europe", "americas", "global", "local", "hong", "kong", "bangkok", "thailand", "advisors", "based"],
+      "a": "PRA has offices in Hong Kong and Bangkok and advisors in 29 countries: 14 across Asia Pacific, 6 in the Americas, 4 in the Middle East and Caucasus, 3 in Africa and 2 in Europe. As an associate of the Inogen Alliance, PRA can also draw on member firms on every continent.",
+      "sources": [["Coverage", "#reach"]]
+    },
+    {
+      "id": "mcp",
+      "q": "Can my AI agent talk to PRA directly?",
+      "keywords": ["mcp", "server", "protocol", "connect", "api", "agent", "assistant", "directly", "talk", "integrate", "integration", "tool", "tools", "chatgpt", "copilot"],
+      "a": "Yes. PRA runs a Model Context Protocol server. Point your assistant at the endpoint and it can look up PRA's capabilities, standards and coverage, search the public knowledge base, and send an enquiry on your behalf. No key is needed for public information.",
+      "sources": [["Agent door", "agents.html"]]
+    },
+    {
+      "id": "esms",
+      "q": "What is an ESMS, and do you build them?",
+      "keywords": ["esms", "management", "system", "systems", "bank", "financial", "institution", "lender", "framework", "policy", "procedures", "assurance", "audit"],
+      "a": "An Environmental and Social Management System is the set of policies, procedures and responsibilities a fund or lender uses to screen, approve and monitor investments for E&S risk. PRA builds them for funds and financial institutions, often through technical assistance programmes, and designs the assurance and audit programmes that keep them working.",
+      "sources": [["E&S management systems", "#work"]]
+    },
+    {
+      "id": "climate",
+      "q": "Do you assess climate risk?",
+      "keywords": ["climate", "carbon", "flood", "physical", "transition", "cvar", "warming", "energy", "net", "zero", "intensel"],
+      "a": "Yes. Climate risk assessment is part of PRA's sustainability strategy and diligence work. For asset-level physical risk, PRA works with Intensel, a Hong Kong climate analytics firm whose platform models flood, typhoon, heat, sea level rise and other hazards and puts a value at risk on each asset.",
+      "sources": [["Sustainability strategy", "#work"], ["Alliances", "#reach"]]
+    },
+    {
+      "id": "exit",
+      "q": "How do you help at exit?",
+      "keywords": ["exit", "sale", "sell", "selling", "ipo", "listing", "index", "disclosure", "buyer", "divest", "hang", "seng", "ftse"],
+      "a": "PRA prepares the ESG record for sale: pre-exit management and positioning, disclosure, and a plan for what follows. For a listing, that includes preparing internal systems for sustainability indexes such as the Hang Seng Sustainability Index and FTSE4Good.",
+      "sources": [["Exit readiness", "#work"]]
+    },
+    {
+      "id": "start",
+      "q": "How do I start an engagement?",
+      "keywords": ["start", "begin", "engage", "engagement", "contact", "quote", "proposal", "price", "pricing", "cost", "fee", "fees", "email", "phone", "call", "speak", "talk", "brief", "enquiry", "inquiry", "hire"],
+      "a": "Send a brief: the target or portfolio, the countries, the standard you need to meet and your timetable. PRA matches it to comparable past work and replies with a scoped proposal. Fees depend on scope and are quoted per engagement. Use the form on this page, email enquiries@pacificriskadvisors.com, or call Hong Kong on +852 2603 6690.",
+      "sources": [["Brief PRA", "#brief"]]
+    },
+    {
+      "id": "founder",
+      "q": "Who leads PRA?",
+      "keywords": ["founder", "founded", "ceo", "james", "pearson", "leads", "lead", "leadership", "history", "when", "established", "team", "people"],
+      "a": "PRA was founded in 2005 by James Pearson, its Chief Executive Officer. He has advised on environmental and social risk in Asia since 1992, and in Europe from 1988.",
+      "sources": [["Firm", "#firm"]]
+    }
+  ]
+}

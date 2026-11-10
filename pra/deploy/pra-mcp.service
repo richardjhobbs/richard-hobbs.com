@@ -1,0 +1,20 @@
+# /etc/systemd/system/pra-mcp.service
+[Unit]
+Description=Pacific Risk Advisors public MCP server
+After=network.target
+
+[Service]
+User=agent
+WorkingDirectory=/var/www/pra.richard-hobbs.com/mcp
+Environment=PRA_ENQUIRY_FILE=/var/lib/pra-mcp/enquiries.jsonl
+ExecStart=/usr/bin/python3 /var/www/pra.richard-hobbs.com/mcp/server.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/pra-mcp
+
+[Install]
+WantedBy=multi-user.target
