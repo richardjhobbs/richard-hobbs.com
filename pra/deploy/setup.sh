@@ -17,7 +17,10 @@ sudo chmod 750 /var/lib/pra-mcp
 
 sudo cp "$HERE/nginx.conf" /etc/nginx/sites-available/pra.richard-hobbs.com
 sudo ln -sf /etc/nginx/sites-available/pra.richard-hobbs.com /etc/nginx/sites-enabled/pra.richard-hobbs.com
-sudo nginx -t
+if ! sudo nginx -t; then
+  sudo rm -f /etc/nginx/sites-enabled/pra.richard-hobbs.com
+  echo "nginx config test failed, vhost not enabled"; exit 1
+fi
 sudo systemctl reload nginx
 
 sudo cp "$HERE/pra-mcp.service" /etc/systemd/system/pra-mcp.service
@@ -29,6 +32,6 @@ else
   echo "server.py is not in $ROOT/mcp yet. Start the service after the first deploy: sudo systemctl start pra-mcp"
 fi
 
-sudo certbot --nginx -d pra.richard-hobbs.com --redirect
+sudo certbot --nginx -n -d pra.richard-hobbs.com --redirect
 
 echo "Done. Check: curl -s https://pra.richard-hobbs.com/healthz"
