@@ -10,19 +10,52 @@
     "position": "PRA bridges the gap between ESG operational and technical issues and maximising investor returns.",
     "vision": "To be the trusted ESG advisor that brings global foresight to ESG risk, helping investors and businesses worldwide anticipate change and turn risk into resilience, compliance and lasting value.",
     "why_pra": [
-      { "title": "Local knowledge, global reach", "detail": "Headquartered in Hong Kong, PRA is a long-standing associate of the Inogen Alliance, a global network of independent environmental and sustainability consultancies. Through the alliance PRA draws on around 6,000 consultants in 200 offices, covering more than 150 countries. You get one point of contact, and local experts who know the regulations, culture and language on the ground." },
-      { "title": "Regional understanding", "detail": "PRA's roots are in Asia-Pacific. Its reach covers Europe, the Americas, the Middle East and Africa." },
-      { "title": "Global foresight", "detail": "PRA tracks where standards and expectations are going: IFC, ADB, EBRD, DFC, DFAT, the Equator Principles, the ILO and new disclosure and due diligence laws. That means you are ready before requirements arrive." },
-      { "title": "Advisors, not box-tickers", "detail": "PRA links ESG performance to strategy, operations and value, so compliance becomes a business advantage." },
-      { "title": "One partner, start to finish", "detail": "From due diligence and strategy to management systems, implementation, reporting and exit, PRA stays with you across the whole cycle." },
-      { "title": "Advice backed by technology", "detail": "PRA's sister company, Clean Future Technologies Ltd (CFT), provides ESG reporting and analysis platforms. You get expert advice and the digital tools to measure, manage and report your performance." }
+      {
+        "title": "Local knowledge, global reach",
+        "detail": "Headquartered in Hong Kong, PRA is a long-standing associate of the Inogen Alliance, a global network of independent environmental and sustainability consultancies. Through the alliance PRA draws on around 6,000 consultants in 200 offices, covering more than 150 countries. You get one point of contact, and local experts who know the regulations, culture and language on the ground."
+      },
+      {
+        "title": "Regional understanding",
+        "detail": "PRA's roots are in Asia-Pacific. Its reach covers Europe, the Americas, the Middle East and Africa."
+      },
+      {
+        "title": "Global foresight",
+        "detail": "PRA tracks where standards and expectations are going: IFC, ADB, EBRD, DFC, DFAT, the Equator Principles, the ILO and new disclosure and due diligence laws. That means you are ready before requirements arrive."
+      },
+      {
+        "title": "Advisors, not box-tickers",
+        "detail": "PRA links ESG performance to strategy, operations and value, so compliance becomes a business advantage."
+      },
+      {
+        "title": "One partner, start to finish",
+        "detail": "From due diligence and strategy to management systems, implementation, reporting and exit, PRA stays with you across the whole cycle."
+      },
+      {
+        "title": "Advice backed by technology",
+        "detail": "PRA's sister company, Clean Future Technologies Ltd (CFT), provides ESG reporting and analysis platforms. You get expert advice and the digital tools to measure, manage and report your performance."
+      }
     ],
     "values": [
-      { "name": "Integrity", "detail": "Independent, evidence-based advice." },
-      { "name": "Pragmatism", "detail": "Solutions that fit your business and its stage." },
-      { "name": "Foresight", "detail": "Preparing you for tomorrow's standards today." },
-      { "name": "Partnership", "detail": "Building your capability and long-term relationships." },
-      { "name": "Impact", "detail": "Measurable benefits for people, the environment and value." }
+      {
+        "name": "Integrity",
+        "detail": "Independent, evidence-based advice."
+      },
+      {
+        "name": "Pragmatism",
+        "detail": "Solutions that fit your business and its stage."
+      },
+      {
+        "name": "Foresight",
+        "detail": "Preparing you for tomorrow's standards today."
+      },
+      {
+        "name": "Partnership",
+        "detail": "Building your capability and long-term relationships."
+      },
+      {
+        "name": "Impact",
+        "detail": "Measurable benefits for people, the environment and value."
+      }
     ],
     "operating_statement": "PRA advisors scope the work, visit the sites, make the judgements and sign every deliverable. AI agents support them with reading, searching, drafting and record-keeping.",
     "headquarters": {
@@ -34,16 +67,72 @@
     "linkedin": "https://www.linkedin.com/company/pacific-risk-advisors/"
   },
   "capabilities": [
-    { "id": "esg-strategy", "name": "ESG risk advisory and strategy", "summary": "ESG strategy, materiality, policies, frameworks and board advisory.", "includes": [] },
-    { "id": "compliance-audits", "name": "ESG compliance and audits", "summary": "Environmental, health and safety compliance audits, ISO 14001 and 45001 management systems, fire and life safety, and regulatory registers.", "includes": [] },
-    { "id": "management-systems", "name": "E&S management systems", "summary": "ESMS for funds, banks and companies, aligned with IFC, development finance institution (DFI) and investor standards.", "includes": [] },
-    { "id": "transactions", "name": "Transaction services", "summary": "ESG due diligence for international M&A, red-flag reviews, action plans and post-deal support.", "includes": [] },
-    { "id": "climate", "name": "Climate and decarbonisation", "summary": "Climate risk and scenario analysis, GHG footprinting, transition planning and climate value-at-risk, with our partner Intensel.", "includes": [] },
-    { "id": "resilience", "name": "Risk management and resilience", "summary": "Enterprise and operational risk, business continuity, and crisis and emergency preparedness.", "includes": [] },
-    { "id": "waste-resources", "name": "Waste and resource advisory", "summary": "Waste and hazardous waste strategy, circular economy, resource efficiency, and contractor and facility audits.", "includes": [] },
-    { "id": "social-safeguarding", "name": "Social, human rights and safeguarding", "summary": "Labour and supply-chain due diligence, modern slavery, child protection and PSEAH, and community and land issues.", "includes": [] },
-    { "id": "reporting-platforms", "name": "ESG reporting and analysis platforms", "summary": "Through our sister company, Clean Future Technologies Ltd (CFT), we provide ESG reporting and analysis platforms. They help you collect, analyse and report ESG data across your operations, portfolio or supply chain, from KPIs and dashboards to investor and regulatory disclosures. Our advisors set up the right metrics, and CFT's platforms make tracking and reporting simple and verifiable.", "includes": [] },
-    { "id": "technical-training", "name": "Technical services and training", "summary": "Site assessments, audits, capacity building and training of trainers.", "includes": [] }
+    {
+      "id": "esg-strategy",
+      "name": "ESG risk advisory and strategy",
+      "summary": "ESG strategy, materiality, policies, frameworks and board advisory.",
+      "includes": []
+    },
+    {
+      "id": "compliance-audits",
+      "name": "ESG compliance and audits",
+      "summary": "Environmental, health and safety compliance audits, ISO 14001 and 45001 management systems, fire and life safety, and regulatory registers.",
+      "includes": []
+    },
+    {
+      "id": "management-systems",
+      "name": "E&S management systems",
+      "summary": "ESMS for funds, banks and companies, aligned with IFC, development finance institution (DFI) and investor standards.",
+      "includes": []
+    },
+    {
+      "id": "transactions",
+      "name": "Transaction services",
+      "summary": "ESG due diligence for international M&A, red-flag reviews, action plans and post-deal support.",
+      "includes": []
+    },
+    {
+      "id": "climate",
+      "name": "Climate and decarbonisation",
+      "summary": "Climate risk and scenario analysis, GHG footprinting, transition planning and climate value-at-risk, with our partner Intensel.",
+      "includes": []
+    },
+    {
+      "id": "resilience",
+      "name": "Risk management and resilience",
+      "summary": "Enterprise and operational risk, business continuity, and crisis and emergency preparedness.",
+      "includes": []
+    },
+    {
+      "id": "waste-resources",
+      "name": "Waste and resource advisory",
+      "summary": "Waste and hazardous waste strategy, circular economy, resource efficiency, and contractor and facility audits.",
+      "includes": []
+    },
+    {
+      "id": "social-safeguarding",
+      "name": "Social, human rights and safeguarding",
+      "summary": "Labour and supply-chain due diligence, modern slavery, child protection and PSEAH, and community and land issues.",
+      "includes": []
+    },
+    {
+      "id": "reporting-platforms",
+      "name": "ESG reporting and analysis platforms",
+      "summary": "Through our sister company, Clean Future Technologies Ltd (CFT), we provide ESG reporting and analysis platforms. They help you collect, analyse and report ESG data across your operations, portfolio or supply chain, from KPIs and dashboards to investor and regulatory disclosures. Our advisors set up the right metrics, and CFT's platforms make tracking and reporting simple and verifiable.",
+      "includes": []
+    },
+    {
+      "id": "technical-services",
+      "name": "Technical services",
+      "summary": "Site assessments and audits, site investigation and remediation, sampling and analysis, HAZOP and HAZID studies, and ESAP verification.",
+      "includes": []
+    },
+    {
+      "id": "capacity-coaching",
+      "name": "Capacity building and executive coaching",
+      "summary": "We build ESG capability at every level of your organisation. For boards and senior executives, one-to-one coaching and briefings on ESG risk, investor expectations and incoming regulation. For management and operating teams, workshops and training programmes tailored to your sector and the standards you work to. For institutions, training of trainers, so the knowledge stays with your people.",
+      "includes": []
+    }
   ],
   "audiences": [
     {
@@ -82,18 +171,52 @@
     }
   ],
   "standards": [
-    { "name": "IFC Performance Standards", "body": "International Finance Corporation" },
-    { "name": "ADB safeguards", "body": "Asian Development Bank" },
-    { "name": "EBRD requirements", "body": "European Bank for Reconstruction and Development" },
-    { "name": "DFC requirements", "body": "US International Development Finance Corporation" },
-    { "name": "DFAT safeguards", "body": "Australian Department of Foreign Affairs and Trade" },
-    { "name": "Equator Principles", "body": "Equator Principles Association" },
-    { "name": "ILO labour standards", "body": "International Labour Organization" },
-    { "name": "ISO 14001 and ISO 45001", "body": "International Organization for Standardization" }
+    {
+      "name": "IFC Performance Standards",
+      "body": "International Finance Corporation"
+    },
+    {
+      "name": "ADB safeguards",
+      "body": "Asian Development Bank"
+    },
+    {
+      "name": "EBRD requirements",
+      "body": "European Bank for Reconstruction and Development"
+    },
+    {
+      "name": "DFC requirements",
+      "body": "US International Development Finance Corporation"
+    },
+    {
+      "name": "DFAT safeguards",
+      "body": "Australian Department of Foreign Affairs and Trade"
+    },
+    {
+      "name": "Equator Principles",
+      "body": "Equator Principles Association"
+    },
+    {
+      "name": "ILO labour standards",
+      "body": "International Labour Organization"
+    },
+    {
+      "name": "ISO 14001 and ISO 45001",
+      "body": "International Organization for Standardization"
+    }
   ],
   "clients": {
-    "capital": ["Private equity funds", "Infrastructure and credit funds", "Banks", "Development finance institutions", "Insurers", "Asset managers"],
-    "industry": ["Multinationals", "Local and regional corporates"]
+    "capital": [
+      "Private equity funds",
+      "Infrastructure and credit funds",
+      "Banks",
+      "Development finance institutions",
+      "Insurers",
+      "Asset managers"
+    ],
+    "industry": [
+      "Multinationals",
+      "Local and regional corporates"
+    ]
   },
   "reach": {
     "headquarters": "Hong Kong",
@@ -101,120 +224,544 @@
     "alliance_consultants": 6000,
     "alliance_offices": 200,
     "alliance_countries": 150,
-    "regions": ["Asia-Pacific", "Europe", "The Americas", "The Middle East", "Africa"]
+    "regions": [
+      "Asia-Pacific",
+      "Europe",
+      "The Americas",
+      "The Middle East",
+      "Africa"
+    ]
   },
   "coverage": [
-    { "region": "Asia Pacific", "countries": ["Australia", "Cambodia", "China", "India", "Indonesia", "Japan", "Malaysia", "Mongolia", "Philippines", "Singapore", "South Korea", "Taiwan", "Thailand", "Vietnam"] },
-    { "region": "Middle East and Caucasus", "countries": ["Armenia", "Jordan", "Qatar", "UAE"] },
-    { "region": "Africa", "countries": ["Egypt", "Kenya", "South Africa"] },
-    { "region": "Europe", "countries": ["Germany", "United Kingdom"] },
-    { "region": "Americas", "countries": ["Brazil", "Chile", "Costa Rica", "El Salvador", "Peru", "United States"] }
+    {
+      "region": "Asia Pacific",
+      "countries": [
+        "Australia",
+        "Cambodia",
+        "China",
+        "India",
+        "Indonesia",
+        "Japan",
+        "Malaysia",
+        "Mongolia",
+        "Philippines",
+        "Singapore",
+        "South Korea",
+        "Taiwan",
+        "Thailand",
+        "Vietnam"
+      ]
+    },
+    {
+      "region": "Middle East and Caucasus",
+      "countries": [
+        "Armenia",
+        "Jordan",
+        "Qatar",
+        "UAE"
+      ]
+    },
+    {
+      "region": "Africa",
+      "countries": [
+        "Egypt",
+        "Kenya",
+        "South Africa"
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        "Germany",
+        "United Kingdom"
+      ]
+    },
+    {
+      "region": "Americas",
+      "countries": [
+        "Brazil",
+        "Chile",
+        "Costa Rica",
+        "El Salvador",
+        "Peru",
+        "United States"
+      ]
+    }
   ],
   "partners": [
-    { "name": "Inogen Alliance", "role": "Global network of independent environmental and sustainability consultancies. PRA is a long-standing associate." },
-    { "name": "Clean Future Technologies Ltd (CFT)", "role": "Sister company providing ESG reporting and analysis platforms." },
-    { "name": "Intensel", "role": "Partner for climate risk analytics and climate value-at-risk." }
+    {
+      "name": "Inogen Alliance",
+      "role": "Global network of independent environmental and sustainability consultancies. PRA is a long-standing associate."
+    },
+    {
+      "name": "Clean Future Technologies Ltd (CFT)",
+      "role": "Sister company providing ESG reporting and analysis platforms."
+    },
+    {
+      "name": "Intensel",
+      "role": "Partner for climate risk analytics and climate value-at-risk."
+    }
   ],
   "operating_model": {
     "principle": "Advisors lead every engagement. AI agents support them.",
     "agents": [
-      { "id": "memory", "name": "Engagement memory", "does": "Holds PRA's past proposals, budgets and project records as structured records, each figure traced to its source file.", "client_benefit": "Your brief is matched to comparable past work, so scope, team and fee rest on PRA's real experience." },
-      { "id": "proposal", "name": "Proposal support", "does": "Reads your terms of reference in full and prepares a first draft of scope, programme and budget for the advisor.", "client_benefit": "A scoped proposal reaches you sooner, with the open questions listed." },
-      { "id": "documents", "name": "Document review", "does": "Reads data room files in full, including scans and other languages, with translation.", "client_benefit": "Nothing goes unread because it was long, scanned or in another language." },
-      { "id": "field", "name": "Site visit records", "does": "Logs photos, notes and observations to the engagement on the day they are taken.", "client_benefit": "Findings are written up from a complete record of the visit." }
+      {
+        "id": "memory",
+        "name": "Engagement memory",
+        "does": "Holds PRA's past proposals, budgets and project records as structured records, each figure traced to its source file.",
+        "client_benefit": "Your brief is matched to comparable past work, so scope, team and fee rest on PRA's real experience."
+      },
+      {
+        "id": "proposal",
+        "name": "Proposal support",
+        "does": "Reads your terms of reference in full and prepares a first draft of scope, programme and budget for the advisor.",
+        "client_benefit": "A scoped proposal reaches you sooner, with the open questions listed."
+      },
+      {
+        "id": "documents",
+        "name": "Document review",
+        "does": "Reads data room files in full, including scans and other languages, with translation.",
+        "client_benefit": "Nothing goes unread because it was long, scanned or in another language."
+      },
+      {
+        "id": "field",
+        "name": "Site visit records",
+        "does": "Logs photos, notes and observations to the engagement on the day they are taken.",
+        "client_benefit": "Findings are written up from a complete record of the visit."
+      }
     ],
     "safeguards": [
-      { "title": "A named advisor signs every deliverable", "detail": "Agents draft. PRA advisors review, decide and put their name to the work." },
-      { "title": "Nothing leaves PRA without approval", "detail": "Proposals, reports and messages wait until a person releases them." },
-      { "title": "Every figure cites its source", "detail": "Each number and finding traces to the file it came from. Gaps are flagged, never filled by guesswork." },
-      { "title": "Your files stay under PRA's control", "detail": "Client documents sit on PRA's own systems. When a model reads a document it does so under commercial terms that bar training on it." },
-      { "title": "Public and confidential are kept apart", "detail": "The assistant on this site sees published information only. Client work is never within its reach." }
+      {
+        "title": "A named advisor signs every deliverable",
+        "detail": "Agents draft. PRA advisors review, decide and put their name to the work."
+      },
+      {
+        "title": "Nothing leaves PRA without approval",
+        "detail": "Proposals, reports and messages wait until a person releases them."
+      },
+      {
+        "title": "Every figure cites its source",
+        "detail": "Each number and finding traces to the file it came from. Gaps are flagged, never filled by guesswork."
+      },
+      {
+        "title": "Your files stay under PRA's control",
+        "detail": "Client documents sit on PRA's own systems. When a model reads a document it does so under commercial terms that bar training on it."
+      },
+      {
+        "title": "Public and confidential are kept apart",
+        "detail": "The assistant on this site sees published information only. Client work is never within its reach."
+      }
     ]
   },
   "faqs": [
     {
-      "id": "what", "q": "What does PRA do?",
-      "keywords": ["what", "do", "does", "pra", "about", "services", "offer", "overview", "who"],
-      "a": "PRA advises investors, multinationals and growing businesses on ESG risk. The work runs from ESG strategy and due diligence to compliance audits, management systems, climate and decarbonisation, social and human rights safeguarding, reporting and training. One partner stays with you from due diligence to exit.",
-      "sources": [["What we do", "#services"], ["Why PRA", "#why"]]
+      "id": "what",
+      "q": "What does PRA do?",
+      "keywords": [
+        "what",
+        "do",
+        "does",
+        "pra",
+        "about",
+        "services",
+        "offer",
+        "overview",
+        "who"
+      ],
+      "a": "PRA advises investors, multinationals and growing businesses on ESG risk. The work runs from ESG strategy and due diligence to compliance audits, management systems, climate and decarbonisation, social and human rights safeguarding, reporting, technical services, and capacity building and executive coaching. One partner stays with you from due diligence to exit.",
+      "sources": [
+        [
+          "What we do",
+          "#services"
+        ],
+        [
+          "Why PRA",
+          "#why"
+        ]
+      ]
     },
     {
-      "id": "deal", "q": "We are acquiring a business overseas. What would you cover?",
-      "keywords": ["fund", "acquiring", "acquisition", "acquire", "buy", "buying", "deal", "target", "diligence", "esdd", "transaction", "m&a", "merger", "invest", "investment", "red", "flag", "overseas"],
+      "id": "deal",
+      "q": "We are acquiring a business overseas. What would you cover?",
+      "keywords": [
+        "fund",
+        "acquiring",
+        "acquisition",
+        "acquire",
+        "buy",
+        "buying",
+        "deal",
+        "target",
+        "diligence",
+        "esdd",
+        "transaction",
+        "m&a",
+        "merger",
+        "invest",
+        "investment",
+        "red",
+        "flag",
+        "overseas"
+      ],
       "a": "Transaction services cover ESG due diligence for international M&A, red-flag reviews, action plans and post-deal support. PRA gives you one point of contact and brings in local experts who know the regulations, culture and language in the target's market.",
-      "sources": [["Transaction services", "#services"], ["Who we work with", "#who"]]
+      "sources": [
+        [
+          "Transaction services",
+          "#services"
+        ],
+        [
+          "Who we work with",
+          "#who"
+        ]
+      ]
     },
     {
-      "id": "standards", "q": "Which standards do you work to?",
-      "keywords": ["standard", "standards", "framework", "frameworks", "ifc", "equator", "adb", "ebrd", "dfc", "dfat", "ilo", "iso", "14001", "45001", "performance", "principles", "criteria", "benchmark"],
+      "id": "standards",
+      "q": "Which standards do you work to?",
+      "keywords": [
+        "standard",
+        "standards",
+        "framework",
+        "frameworks",
+        "ifc",
+        "equator",
+        "adb",
+        "ebrd",
+        "dfc",
+        "dfat",
+        "ilo",
+        "iso",
+        "14001",
+        "45001",
+        "performance",
+        "principles",
+        "criteria",
+        "benchmark"
+      ],
       "a": "PRA tracks IFC, ADB, EBRD, DFC, DFAT, the Equator Principles and the ILO, along with new disclosure and due diligence laws. Compliance work includes ISO 14001 and ISO 45001 management systems.",
-      "sources": [["Why PRA", "#why"], ["What we do", "#services"]]
+      "sources": [
+        [
+          "Why PRA",
+          "#why"
+        ],
+        [
+          "What we do",
+          "#services"
+        ]
+      ]
     },
     {
-      "id": "where", "q": "Which countries can you cover?",
-      "keywords": ["where", "countries", "country", "coverage", "office", "offices", "location", "locations", "region", "asia", "africa", "europe", "americas", "global", "local", "hong", "kong", "based", "cover"],
+      "id": "where",
+      "q": "Which countries can you cover?",
+      "keywords": [
+        "where",
+        "countries",
+        "country",
+        "coverage",
+        "office",
+        "offices",
+        "location",
+        "locations",
+        "region",
+        "asia",
+        "africa",
+        "europe",
+        "americas",
+        "global",
+        "local",
+        "hong",
+        "kong",
+        "based",
+        "cover"
+      ],
       "a": "PRA is headquartered in Hong Kong with roots in Asia-Pacific, and its reach covers Europe, the Americas, the Middle East and Africa. As a long-standing associate of the Inogen Alliance, PRA draws on around 6,000 consultants in 200 offices, covering more than 150 countries.",
-      "sources": [["Why PRA", "#why"]]
+      "sources": [
+        [
+          "Why PRA",
+          "#why"
+        ]
+      ]
     },
     {
-      "id": "esms", "q": "What is an ESMS, and do you build them?",
-      "keywords": ["esms", "management", "system", "systems", "bank", "financial", "institution", "lender", "policy", "procedures"],
+      "id": "esms",
+      "q": "What is an ESMS, and do you build them?",
+      "keywords": [
+        "esms",
+        "management",
+        "system",
+        "systems",
+        "bank",
+        "financial",
+        "institution",
+        "lender",
+        "policy",
+        "procedures"
+      ],
       "a": "An Environmental and Social Management System is the set of policies, procedures and responsibilities an organisation uses to manage E&S risk. PRA builds them for funds, banks and companies, aligned with IFC, development finance institution and investor standards.",
-      "sources": [["E&S management systems", "#services"]]
+      "sources": [
+        [
+          "E&S management systems",
+          "#services"
+        ]
+      ]
     },
     {
-      "id": "audit", "q": "Do you carry out compliance audits?",
-      "keywords": ["audit", "audits", "compliance", "health", "safety", "fire", "life", "regulatory", "register", "certification", "inspection"],
+      "id": "audit",
+      "q": "Do you carry out compliance audits?",
+      "keywords": [
+        "audit",
+        "audits",
+        "compliance",
+        "health",
+        "safety",
+        "fire",
+        "life",
+        "regulatory",
+        "register",
+        "certification",
+        "inspection"
+      ],
       "a": "Yes. ESG compliance and audits covers environmental, health and safety compliance audits, ISO 14001 and 45001 management systems, fire and life safety, and regulatory registers.",
-      "sources": [["ESG compliance and audits", "#services"]]
+      "sources": [
+        [
+          "ESG compliance and audits",
+          "#services"
+        ]
+      ]
     },
     {
-      "id": "climate", "q": "Do you assess climate risk?",
-      "keywords": ["climate", "carbon", "ghg", "emissions", "footprint", "decarbonisation", "decarbonization", "transition", "scenario", "net", "zero", "intensel"],
+      "id": "climate",
+      "q": "Do you assess climate risk?",
+      "keywords": [
+        "climate",
+        "carbon",
+        "ghg",
+        "emissions",
+        "footprint",
+        "decarbonisation",
+        "decarbonization",
+        "transition",
+        "scenario",
+        "net",
+        "zero",
+        "intensel"
+      ],
       "a": "Yes. Climate and decarbonisation covers climate risk and scenario analysis, GHG footprinting, transition planning and climate value-at-risk, with PRA's partner Intensel.",
-      "sources": [["Climate and decarbonisation", "#services"]]
+      "sources": [
+        [
+          "Climate and decarbonisation",
+          "#services"
+        ]
+      ]
     },
     {
-      "id": "reporting", "q": "Can you help us report ESG data?",
-      "keywords": ["report", "reporting", "data", "kpi", "kpis", "dashboard", "platform", "platforms", "disclosure", "disclosures", "cft", "software", "track", "monitoring"],
+      "id": "reporting",
+      "q": "Can you help us report ESG data?",
+      "keywords": [
+        "report",
+        "reporting",
+        "data",
+        "kpi",
+        "kpis",
+        "dashboard",
+        "platform",
+        "platforms",
+        "disclosure",
+        "disclosures",
+        "cft",
+        "software",
+        "track",
+        "monitoring"
+      ],
       "a": "Yes. PRA's sister company, Clean Future Technologies Ltd (CFT), provides ESG reporting and analysis platforms. They help you collect, analyse and report ESG data across your operations, portfolio or supply chain. PRA's advisors set up the right metrics.",
-      "sources": [["ESG reporting and analysis platforms", "#services"]]
+      "sources": [
+        [
+          "ESG reporting and analysis platforms",
+          "#services"
+        ]
+      ]
     },
     {
-      "id": "social", "q": "Do you cover human rights and supply chains?",
-      "keywords": ["social", "human", "rights", "labour", "labor", "supply", "chain", "modern", "slavery", "child", "protection", "pseah", "safeguarding", "community", "land"],
+      "id": "social",
+      "q": "Do you cover human rights and supply chains?",
+      "keywords": [
+        "social",
+        "human",
+        "rights",
+        "labour",
+        "labor",
+        "supply",
+        "chain",
+        "modern",
+        "slavery",
+        "child",
+        "protection",
+        "pseah",
+        "safeguarding",
+        "community",
+        "land"
+      ],
       "a": "Yes. Social, human rights and safeguarding covers labour and supply-chain due diligence, modern slavery, child protection and PSEAH, and community and land issues.",
-      "sources": [["Social, human rights and safeguarding", "#services"]]
+      "sources": [
+        [
+          "Social, human rights and safeguarding",
+          "#services"
+        ]
+      ]
     },
     {
-      "id": "ai", "q": "Does PRA use AI?",
-      "keywords": ["ai", "agent", "agents", "agentic", "artificial", "intelligence", "automation", "automated", "model", "llm", "technology"],
+      "id": "ai",
+      "q": "Does PRA use AI?",
+      "keywords": [
+        "ai",
+        "agent",
+        "agents",
+        "agentic",
+        "artificial",
+        "intelligence",
+        "automation",
+        "automated",
+        "model",
+        "llm",
+        "technology"
+      ],
       "a": "PRA is introducing AI agents to support its advisors with reading, searching, drafting and record-keeping. Advisors do the scoping, the site work and the judgement, and sign every deliverable.",
-      "sources": [["How we work", "#model"]]
+      "sources": [
+        [
+          "How we work",
+          "#model"
+        ]
+      ]
     },
     {
-      "id": "privacy", "q": "Is my data used to train AI models?",
-      "keywords": ["train", "training", "privacy", "confidential", "confidentiality", "secure", "security", "nda", "files", "protect", "trained"],
+      "id": "privacy",
+      "q": "Is my data used to train AI models?",
+      "keywords": [
+        "train",
+        "training",
+        "privacy",
+        "confidential",
+        "confidentiality",
+        "secure",
+        "security",
+        "nda",
+        "files",
+        "protect",
+        "trained"
+      ],
       "a": "No. Client documents sit on PRA's own systems. When a model reads a document it does so under commercial terms that bar training on it. The assistant on this site sees published information only.",
-      "sources": [["How we work", "#model"]]
+      "sources": [
+        [
+          "How we work",
+          "#model"
+        ]
+      ]
     },
     {
-      "id": "mcp", "q": "Can my AI assistant talk to PRA directly?",
-      "keywords": ["mcp", "server", "protocol", "connect", "api", "assistant", "directly", "integrate", "integration", "chatgpt", "copilot", "claude"],
+      "id": "mcp",
+      "q": "Can my AI assistant talk to PRA directly?",
+      "keywords": [
+        "mcp",
+        "server",
+        "protocol",
+        "connect",
+        "api",
+        "assistant",
+        "directly",
+        "integrate",
+        "integration",
+        "chatgpt",
+        "copilot",
+        "claude"
+      ],
       "a": "Yes. PRA runs a Model Context Protocol server. Point your assistant at the endpoint and it can look up PRA's services and reach, and send an enquiry on your behalf.",
-      "sources": [["For AI assistants", "agents.html"]]
+      "sources": [
+        [
+          "For AI assistants",
+          "agents.html"
+        ]
+      ]
     },
     {
-      "id": "start", "q": "How do I start?",
-      "keywords": ["start", "begin", "engage", "engagement", "contact", "quote", "proposal", "price", "pricing", "cost", "fee", "fees", "email", "phone", "call", "speak", "talk", "brief", "enquiry", "inquiry", "hire"],
+      "id": "start",
+      "q": "How do I start?",
+      "keywords": [
+        "start",
+        "begin",
+        "engage",
+        "engagement",
+        "contact",
+        "quote",
+        "proposal",
+        "price",
+        "pricing",
+        "cost",
+        "fee",
+        "fees",
+        "email",
+        "phone",
+        "call",
+        "speak",
+        "talk",
+        "brief",
+        "enquiry",
+        "inquiry",
+        "hire"
+      ],
       "a": "Talk to us about your ESG risks. Use the form on this page, email enquiries@pacificriskadvisors.com, or call +852 2603 6690. Fees depend on scope and are quoted per engagement.",
-      "sources": [["Talk to us", "#contact"]]
+      "sources": [
+        [
+          "Talk to us",
+          "#contact"
+        ]
+      ]
     },
     {
-      "id": "founder", "q": "Who leads PRA?",
-      "keywords": ["founder", "founded", "ceo", "james", "pearson", "leads", "lead", "leadership", "history", "established"],
+      "id": "founder",
+      "q": "Who leads PRA?",
+      "keywords": [
+        "founder",
+        "founded",
+        "ceo",
+        "james",
+        "pearson",
+        "leads",
+        "lead",
+        "leadership",
+        "history",
+        "established"
+      ],
       "a": "PRA was founded in 2005 by James Pearson, its Chief Executive Officer.",
-      "sources": [["Introduction", "#intro"]]
+      "sources": [
+        [
+          "Introduction",
+          "#intro"
+        ]
+      ]
+    },
+    {
+      "id": "coaching",
+      "q": "Do you offer ESG training or executive coaching?",
+      "keywords": [
+        "training",
+        "coaching",
+        "coach",
+        "capacity",
+        "building",
+        "executive",
+        "board",
+        "workshop",
+        "workshops",
+        "trainers",
+        "learning"
+      ],
+      "a": "Yes. PRA builds ESG capability at every level of an organisation. For boards and senior executives, one-to-one coaching and briefings on ESG risk, investor expectations and incoming regulation. For management and operating teams, workshops and training programmes tailored to the sector and the standards it works to. For institutions, training of trainers, so the knowledge stays with its people.",
+      "sources": [
+        [
+          "Capacity building and executive coaching",
+          "#services"
+        ]
+      ]
     }
   ]
 }
