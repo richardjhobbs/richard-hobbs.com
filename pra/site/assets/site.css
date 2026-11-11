@@ -401,3 +401,6 @@ footer .wrap { row-gap: 10px; }
 .legal-body .dated { font-size: 14px; color: var(--muted); }
 .review-note { background: var(--blue-tint); border-left: 4px solid var(--blue); padding: 14px 16px; font-size: 15px; color: var(--ink); }
 @media (max-width: 1000px) { .legal { grid-template-columns: 1fr; } .legal-nav { position: static; } }
+
+.legal-body h3[id] { scroll-margin-top: 96px; margin-top: 14px; font-size: 1.25rem; }
+.legal-body p b { color: var(--ink); }
