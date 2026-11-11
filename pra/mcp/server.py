@@ -27,10 +27,10 @@ HERE = Path(__file__).resolve().parent
 KNOWLEDGE = Path(os.environ.get("PRA_KNOWLEDGE", HERE.parent / "site" / "data" / "knowledge.json"))
 ENQUIRIES = Path(os.environ.get("PRA_ENQUIRY_FILE", HERE / "enquiries.jsonl"))
 
-SERVER_INFO = {"name": "pacific-risk-advisors", "title": "Pacific Risk Advisors", "version": "0.1.0"}
+SERVER_INFO = {"name": "pacific-risk-advisors", "title": "Pacific Risk Advisors", "version": "0.2.0"}
 PROTOCOL_VERSIONS = ["2025-11-25", "2025-06-18", "2025-03-26", "2024-11-05"]
 INSTRUCTIONS = (
-    "Public information about Pacific Risk Advisors (PRA), an ESG and sustainability risk consultancy. "
+    "Public information about Pacific Risk Advisors (PRA), ESG advisors to investors, multinationals and growing businesses. "
     "Use search_knowledge for a free-text question, list_capabilities and get_capability for services, "
     "and submit_enquiry only when the person you act for has asked you to contact PRA. "
     "This server holds published information only. It has no client data, fees or project records."
@@ -147,21 +147,22 @@ READ = {"readOnlyHint": True, "openWorldHint": False}
 
 TOOLS = [
     {"name": "get_firm_overview", "title": "Firm overview",
-     "description": "Who Pacific Risk Advisors is: summary, founding, offices, memberships, contact details and published documents.",
+     "description": "Who Pacific Risk Advisors is: summary, vision, values, why PRA, headquarters and contact details.",
      "inputSchema": obj(), "annotations": READ},
-    {"name": "list_capabilities", "title": "List capabilities",
-     "description": "PRA's services, grouped by the stage of an investment they apply to. Optionally filter by stage.",
-     "inputSchema": obj({"stage": {"type": "string", "enum": ["commit", "hold", "exit"],
-                                   "description": "commit = before the deal, hold = during ownership, exit = at sale"}}),
-     "annotations": READ},
+    {"name": "list_capabilities", "title": "List services",
+     "description": "PRA's services, each with an id and a short description.",
+     "inputSchema": obj(), "annotations": READ},
+    {"name": "list_audiences", "title": "Who PRA works with",
+     "description": "The three groups PRA works with (financial sector, multinationals, local and regional corporates) and what PRA does for each.",
+     "inputSchema": obj(), "annotations": READ},
     {"name": "get_capability", "title": "Capability detail",
      "description": "Full detail of one capability by id, as returned by list_capabilities.",
      "inputSchema": obj({"id": {"type": "string"}}, ["id"]), "annotations": READ},
     {"name": "list_standards", "title": "Standards",
-     "description": "The international standards and frameworks PRA assesses against.",
+     "description": "The international standards and frameworks PRA tracks and works to.",
      "inputSchema": obj(), "annotations": READ},
     {"name": "get_coverage", "title": "Coverage",
-     "description": "Countries where PRA has advisors, by region, plus offices. Pass a country to check one.",
+     "description": "PRA's reach: Inogen Alliance coverage and countries where PRA has its own advisors. Pass a country to check one.",
      "inputSchema": obj({"country": {"type": "string"}}), "annotations": READ},
     {"name": "get_operating_model", "title": "How PRA uses AI agents",
      "description": "How PRA divides work between software agents and human advisors, and the safeguards on client data and sign-off.",
@@ -191,13 +192,9 @@ def call_tool(name, args, ip):
     if name == "get_firm_overview":
         return k["firm"]
     if name == "list_capabilities":
-        stage = args.get("stage")
-        stages = [s for s in k["stages"] if not stage or s["id"] == stage]
-        if not stages:
-            raise ValueError("stage must be one of commit, hold, exit")
-        return {"stages": [{**s, "capabilities": [{"id": c["id"], "name": c["name"], "summary": c["summary"]}
-                                                   for c in k["capabilities"] if c["stage"] == s["id"]]}
-                           for s in stages]}
+        return {"services": [{"id": c["id"], "name": c["name"], "summary": c["summary"]} for c in k["capabilities"]]}
+    if name == "list_audiences":
+        return {"audiences": k["audiences"]}
     if name == "get_capability":
         for c in k["capabilities"]:
             if c["id"] == args.get("id"):
@@ -214,8 +211,9 @@ def call_tool(name, args, ip):
                     if c.lower() == country:
                         return {"country": c, "region": r["region"], "has_advisors": True}
             return {"country": args.get("country"), "has_advisors": False,
-                    "note": "No PRA advisor is listed there. PRA can draw on Inogen Alliance member firms, ask via submit_enquiry."}
-        return {"countries_with_advisors": total, "regions": k["coverage"], "offices": k["firm"]["offices"]}
+                    "note": "No PRA advisor is listed there. Through the Inogen Alliance PRA covers more than 150 countries, ask via submit_enquiry."}
+        return {"reach": k["reach"], "countries_with_pra_advisors": total, "regions": k["coverage"],
+                "headquarters": k["firm"]["headquarters"]}
     if name == "get_operating_model":
         return k["operating_model"]
     if name == "search_knowledge":

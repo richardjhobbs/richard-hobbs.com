@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pacific Risk Advisors | ESG and sustainability risk advisory</title>
-<meta name="description" content="Pacific Risk Advisors is an ESG and sustainability risk consultancy for investors, lenders and operators. Founded in Hong Kong in 2005, with advisors in 29 countries.">
+<title>Pacific Risk Advisors | ESG advisors worldwide</title>
+<meta name="description" content="Local knowledge. Regional understanding. Global foresight. ESG advisors to investors, multinationals and growing businesses worldwide.">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="Pacific Risk Advisors">
-<meta property="og:description" content="ESG and sustainability risk advice for investors, lenders and the businesses they back.">
+<meta property="og:description" content="ESG advisors to investors, multinationals and growing businesses worldwide.">
 <meta property="og:image" content="assets/og.png">
 <link rel="icon" href="assets/favicon.png">
-<link rel="alternate" type="text/plain" href="llms.txt" title="Summary for AI agents">
+<link rel="alternate" type="text/plain" href="llms.txt" title="Summary for AI assistants">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&display=swap">
@@ -20,121 +20,160 @@
 
 <nav class="nav" id="nav" aria-label="Main">
   <div class="wrap">
-    <a class="brand" href="#top">
-      <img src="assets/logo.png" alt="Pacific Risk Advisors">
-    </a>
+    <a class="brand" href="#top"><img src="assets/logo.png" alt="Pacific Risk Advisors"></a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navList">Menu</button>
     <ul id="navList">
-      <li><a href="#work">The work</a></li>
-      <li><a href="#clients">Clients</a></li>
-      <li><a href="#reach">Reach</a></li>
-      <li><a href="#firm">The firm</a></li>
+      <li><a href="#why">Why PRA</a></li>
+      <li><a href="#services">What we do</a></li>
+      <li><a href="#who">Who we work with</a></li>
+      <li><a href="#values">Our values</a></li>
       <li><a href="#model">How we work</a></li>
     </ul>
-    <a class="btn primary" href="#brief">Brief PRA</a>
+    <a class="btn primary" href="#contact">Talk to us</a>
   </div>
 </nav>
 
 <main id="top">
 
 <!-- HERO -->
-<header class="hero">
+<header class="hero-photo">
+  <img src="assets/img/hero.jpg" alt="" fetchpriority="high">
   <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">ESG and sustainability risk advisory · Since 2005</p>
-        <h1 class="display">ESG risk advice for investors, lenders and the businesses they back.</h1>
-        <p class="lede">PRA bridges the gap between ESG operational and technical issues and maximising investor returns. International advisors, paired with local specialists, from first screening to exit.</p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#brief">Brief PRA</a>
-          <a class="btn ghost" href="#work">See the work</a>
-        </div>
-      </div>
-      <nav class="hero-stages" aria-label="Where are you in the investment?">
-        <p class="eyebrow">Where are you in the investment?</p>
-        <a href="#work" data-stage="commit"><small>Stage 1</small><b>Before you commit</b><span>Due diligence on the target and its sites</span></a>
-        <a href="#work" data-stage="hold"><small>Stage 2</small><b>While you hold</b><span>Management systems, action plans and monitoring</span></a>
-        <a href="#work" data-stage="exit"><small>Stage 3</small><b>When you exit</b><span>Disclosure, positioning and planning</span></a>
-      </nav>
-    </div>
-  </div>
-  <div class="stats">
-    <div class="wrap">
-      <div class="stat"><b data-count="2005" data-plain>2005</b><span>Founded in Hong Kong by James Pearson</span></div>
-      <div class="stat"><b data-count="29">29</b><span>Countries with PRA advisors on the ground</span></div>
-      <div class="stat"><b data-count-since="1992">34</b><span>Years advising on E&amp;S risk in Asia</span></div>
-      <div class="stat"><b data-count="2">2</b><span>Offices, in Hong Kong and Bangkok</span></div>
+    <h1 class="display">Local knowledge.<br>Regional understanding.<br>Global foresight.</h1>
+    <p class="lede">ESG advisors to investors, multinationals and growing businesses worldwide.</p>
+    <div class="hero-cta">
+      <a class="btn primary" href="#contact">Talk to us</a>
+      <a class="btn ghost" href="#services">Explore our services</a>
     </div>
   </div>
 </header>
 
-<!-- WORK -->
-<section id="work">
+<div class="stats">
   <div class="wrap">
-    <div class="head rv">
-      <div>
-        <p class="eyebrow">The work</p>
-        <h2 class="display">One risk practice, across the life of an investment.</h2>
-      </div>
-      <p class="lede">Scope follows the size and maturity of the target. Pick the point you are at.</p>
-    </div>
-    <div class="stage-tabs rv" role="tablist" aria-label="Investment stage" id="stageTabs"></div>
-    <p class="stage-sum" id="stageSum"></p>
-    <div class="caps" id="caps" role="tabpanel"></div>
+    <div class="stat"><b data-count="2005" data-plain>2005</b><span>Founded in Hong Kong</span></div>
+    <div class="stat"><b><span data-count="150">150</span>+</b><span>Countries covered through the Inogen Alliance</span></div>
+    <div class="stat"><b data-count="200">200</b><span>Alliance offices</span></div>
+    <div class="stat"><b data-count="6000" data-sep>6,000</b><span>Consultants to draw on, approximately</span></div>
   </div>
-</section>
+</div>
 
-<!-- STANDARDS -->
-<div id="standards" class="stds"><div class="wrap"><p class="eyebrow">Standards we assess against</p><ul id="ticker"></ul></div></div>
-
-<!-- CLIENTS -->
-<section id="clients">
-  <div class="wrap">
-    <div class="head rv">
-      <div>
-        <p class="eyebrow">Who PRA works for</p>
-        <h2 class="display">Capital on one side. The businesses it backs on the other.</h2>
-      </div>
-      <p class="lede">Adding value and addressing sustainability issues are no longer mutually exclusive.</p>
-    </div>
-    <div class="cols rv">
-      <div class="col"><h3>Investors and lenders</h3><ul id="clientsCapital"></ul></div>
-      <div class="col"><h3>Operating sectors</h3><ul id="clientsIndustry"></ul></div>
-    </div>
-  </div>
-</section>
-
-<!-- REACH -->
-<section id="reach" class="dark">
-  <div class="wrap">
-    <div class="head rv">
-      <div>
-        <p class="eyebrow">Reach</p>
-        <h2 class="display">International advisors, paired with people who know the ground.</h2>
-      </div>
-      <div class="clocks" id="clocks"></div>
-    </div>
-    <div class="regions rv" id="regions"></div>
-    <p class="sub">Alliances and partners</p>
-    <div class="partners rv" id="partners"></div>
-  </div>
-</section>
-
-<!-- FIRM -->
-<section id="firm">
-  <div class="wrap">
-    <div class="firm">
-      <figure class="rv">
-        <p class="eyebrow" style="margin-bottom:26px">The firm</p>
+<!-- INTRO -->
+<section id="intro">
+  <div class="wrap split">
+    <div class="copy rv">
+      <p class="eyebrow">Introduction</p>
+      <h2 class="display">Risk is changing faster than ever.</h2>
+      <p>Standards are tightening, investors expect more, and climate, supply-chain and human rights issues now reach every boardroom.</p>
+      <p>Pacific Risk Advisors helps you see what's coming and act early. We combine local knowledge in every market, deep regional understanding, and global foresight on where regulation and investor expectations are heading. The result is practical advice that protects people, the environment and your returns.</p>
+      <figure class="quote">
         <blockquote>“PRA bridges the gap between ESG operational and technical issues and maximising investor returns.”</blockquote>
-        <cite>James Pearson, Chief Executive Officer</cite>
+        <cite>James Pearson, CEO</cite>
       </figure>
-      <div class="firm-copy rv">
-        <p>Pacific Risk Advisors was founded in 2005 by James Pearson, who has advised on environmental and social risk in Asia since 1992 and in Europe from 1988. The firm has grown into one of Asia's leading specialists in ESG and sustainability risk for the global investment and business community.</p>
-        <p>The approach is pro-investment. Identify, manage and mitigate ESG risk so that the pressure comes off the fund manager and the portfolio company, and the value of the investment rises with it.</p>
-        <p>All staff and contractors follow the PRA Principle Codes of Business, which build ESG factors into every service the firm provides.</p>
-        <div class="creds" id="creds"></div>
+    </div>
+    <div class="photo rv"><img src="assets/img/river.jpg" alt="" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section id="vision" class="band-photo">
+  <img src="assets/img/community.jpg" alt="" loading="lazy">
+  <div class="wrap rv">
+    <p class="eyebrow">Our vision</p>
+    <p class="vision">To be the trusted ESG advisor that brings global foresight to ESG risk, helping investors and businesses worldwide anticipate change and turn risk into resilience, compliance and lasting value.</p>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="wrap">
+    <div class="head rv"><div><p class="eyebrow">Why PRA</p><h2 class="display">One point of contact. Local experts on the ground.</h2></div></div>
+    <div class="why rv">
+      <article><span class="n">1</span><h3>Local knowledge, global reach</h3><p>Headquartered in Hong Kong, we are a long-standing associate of the Inogen Alliance, a global network of independent environmental and sustainability consultancies. Through the alliance we draw on around 6,000 consultants in 200 offices, covering more than 150 countries. You get one point of contact, and local experts who know the regulations, culture and language on the ground.</p></article>
+      <article><span class="n">2</span><h3>Regional understanding</h3><p>Our roots are in Asia-Pacific. Our reach covers Europe, the Americas, the Middle East and Africa.</p></article>
+      <article><span class="n">3</span><h3>Global foresight</h3><p>We track where standards and expectations are going: IFC, ADB, EBRD, DFC, DFAT, the Equator Principles, the ILO and new disclosure and due diligence laws. That means you're ready before requirements arrive.</p></article>
+      <article><span class="n">4</span><h3>Advisors, not box-tickers</h3><p>We link ESG performance to strategy, operations and value, so compliance becomes a business advantage.</p></article>
+      <article><span class="n">5</span><h3>One partner, start to finish</h3><p>From due diligence and strategy to management systems, implementation, reporting and exit, we stay with you across the whole cycle.</p></article>
+      <article><span class="n">6</span><h3>Advice backed by technology</h3><p>Our sister company, Clean Future Technologies Ltd (CFT), provides ESG reporting and analysis platforms. You get expert advice and the digital tools to measure, manage and report your performance.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="alt">
+  <div class="wrap">
+    <div class="head rv"><div><p class="eyebrow">What we do</p><h2 class="display">Ten services, one advisory team.</h2></div></div>
+    <div class="caps rv">
+      <article class="cap"><h3>ESG risk advisory and strategy</h3><p>ESG strategy, materiality, policies, frameworks and board advisory.</p></article>
+      <article class="cap"><h3>ESG compliance and audits</h3><p>Environmental, health and safety compliance audits, ISO 14001 and 45001 management systems, fire and life safety, and regulatory registers.</p></article>
+      <article class="cap"><h3>E&amp;S management systems</h3><p>ESMS for funds, banks and companies, aligned with IFC, development finance institution (DFI) and investor standards.</p></article>
+      <article class="cap"><h3>Transaction services</h3><p>ESG due diligence for international M&amp;A, red-flag reviews, action plans and post-deal support.</p></article>
+      <article class="cap"><h3>Climate and decarbonisation</h3><p>Climate risk and scenario analysis, GHG footprinting, transition planning and climate value-at-risk, with our partner Intensel.</p></article>
+      <article class="cap"><h3>Risk management and resilience</h3><p>Enterprise and operational risk, business continuity, and crisis and emergency preparedness.</p></article>
+      <article class="cap"><h3>Waste and resource advisory</h3><p>Waste and hazardous waste strategy, circular economy, resource efficiency, and contractor and facility audits.</p></article>
+      <article class="cap"><h3>Social, human rights and safeguarding</h3><p>Labour and supply-chain due diligence, modern slavery, child protection and PSEAH, and community and land issues.</p></article>
+      <article class="cap wide"><h3>ESG reporting and analysis platforms</h3><p>Through our sister company, Clean Future Technologies Ltd (CFT), we provide ESG reporting and analysis platforms. They help you collect, analyse and report ESG data across your operations, portfolio or supply chain, from KPIs and dashboards to investor and regulatory disclosures. Our advisors set up the right metrics, and CFT's platforms make tracking and reporting simple and verifiable.</p></article>
+      <article class="cap"><h3>Technical services and training</h3><p>Site assessments, audits, capacity building and training of trainers.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section id="who">
+  <div class="wrap">
+    <div class="head rv"><div><p class="eyebrow">Who we work with</p><h2 class="display">Investors, multinationals and growing businesses.</h2></div></div>
+    <div class="stage-tabs rv" role="tablist" aria-label="Who we work with" id="whoTabs">
+      <button role="tab" type="button" data-who="financial" aria-selected="true"><b>Financial sector</b></button>
+      <button role="tab" type="button" data-who="multinationals" aria-selected="false"><b>Multinationals</b></button>
+      <button role="tab" type="button" data-who="corporates" aria-selected="false"><b>Local and regional corporates</b></button>
+    </div>
+    <div class="who-panel" data-panel="financial">
+      <div class="copy">
+        <p>We work with private equity, infrastructure and credit funds, banks, development finance institutions, insurers and asset managers across Asia and beyond. We support them at every stage, from pre-deal due diligence and fund-level ESMS to portfolio monitoring and exit.</p>
+        <ul class="gains">
+          <li>Invest with confidence through fast, focused ESG due diligence in any market.</li>
+          <li>Stay ahead of LP, DFI and regulatory requirements.</li>
+          <li>Create value across your portfolio, from acquisition to exit.</li>
+          <li>Track and report portfolio ESG performance with CFT's reporting and analysis platforms.</li>
+        </ul>
       </div>
+      <div class="photo"><img src="assets/img/finance.jpg" alt="" loading="lazy"></div>
+    </div>
+    <div class="who-panel" data-panel="multinationals" hidden>
+      <div class="copy">
+        <ul class="gains">
+          <li>One global standard, applied locally through alliance experts in more than 150 countries.</li>
+          <li>Protect your licence to operate with ESG compliance and audits.</li>
+          <li>Manage supply-chain and human rights risk, and prepare for new laws.</li>
+          <li>Assess acquisitions, partners and new sites before you commit.</li>
+          <li>Consolidate ESG data across sites and suppliers on a single platform.</li>
+        </ul>
+      </div>
+      <div class="photo"><img src="assets/img/multinational.jpg" alt="" loading="lazy"></div>
+    </div>
+    <div class="who-panel" data-panel="corporates" hidden>
+      <div class="copy">
+        <ul class="gains">
+          <li>Become investor-ready and lender-ready.</li>
+          <li>Get practical, right-sized ESG systems built for growing businesses.</li>
+          <li>Win export customers with certification and credible ESG data, managed on CFT's reporting platforms.</li>
+          <li>Cut costs through energy, waste and resource efficiency.</li>
+        </ul>
+      </div>
+      <div class="photo"><img src="assets/img/corporate.jpg" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section id="values" class="dark">
+  <div class="wrap">
+    <div class="head rv"><div><p class="eyebrow">Our values</p><h2 class="display">What you can expect from us.</h2></div></div>
+    <div class="guards rv">
+      <div class="guard"><h3>Integrity</h3><p>Independent, evidence-based advice.</p></div>
+      <div class="guard"><h3>Pragmatism</h3><p>Solutions that fit your business and its stage.</p></div>
+      <div class="guard"><h3>Foresight</h3><p>Preparing you for tomorrow's standards today.</p></div>
+      <div class="guard"><h3>Partnership</h3><p>Building your capability and long-term relationships.</p></div>
+      <div class="guard"><h3>Impact</h3><p>Measurable benefits for people, the environment and value.</p></div>
     </div>
   </div>
 </section>
@@ -149,7 +188,6 @@
       </div>
       <p class="lede">PRA is introducing AI agents to support its advisors. They take on the reading, searching and record-keeping. The scope, the site work and the judgement remain with the people you engage.</p>
     </div>
-
     <div class="model-grid">
       <div class="run rv" id="run">
         <div class="run-bar"><span>An engagement, start to finish</span><button id="replay" type="button">Replay</button></div>
@@ -157,61 +195,26 @@
         <div class="lanes"><span>PRA advisors</span><span>PRA agents</span></div>
         <ol class="steps" id="steps">
           <li class="you"><div><span class="tag you">You</span><p>Send a brief or terms of reference.</p></div></li>
-          <li class="agent"><div><span class="tag agent">Agent</span><p>Reads the brief in full and finds the closest past PRA engagements.</p></div></li>
-          <li class="advisor"><div><span class="tag advisor">Advisor</span><p>A director sets the scope, the team and the fee.</p></div></li>
-          <li class="agent"><div><span class="tag agent">Agent</span><p>Reads the data room: every file, scans and other languages included.</p></div></li>
-          <li class="advisor"><div><span class="tag advisor">Advisor</span><p>Visits the sites with a local specialist. Interviews management.</p></div></li>
-          <li class="agent"><div><span class="tag agent">Agent</span><p>Logs photos, voice notes and observations to the engagement the same day.</p></div></li>
-          <li class="agent"><div><span class="tag agent">Agent</span><p>Assembles the draft. Every finding links to its evidence.</p></div></li>
-          <li class="advisor"><div><span class="tag advisor">Advisor</span><p>Reviews, makes the judgement calls and signs.</p></div></li>
-          <li class="you"><div><span class="tag you">You</span><p>Receive a report you can trace line by line.</p></div></li>
+          <li class="agent"><div><span class="tag agent">Agent</span><p>Reads the brief in full and finds comparable past PRA work.</p></div></li>
+          <li class="advisor"><div><span class="tag advisor">Advisor</span><p>Sets the scope, the team and the fee.</p></div></li>
+          <li class="agent"><div><span class="tag agent">Agent</span><p>Reads the documents: every file, scans and other languages included.</p></div></li>
+          <li class="advisor"><div><span class="tag advisor">Advisor</span><p>Visits the sites with a local expert. Interviews management.</p></div></li>
+          <li class="agent"><div><span class="tag agent">Agent</span><p>Logs photos, notes and observations the same day.</p></div></li>
+          <li class="advisor"><div><span class="tag advisor">Advisor</span><p>Reviews the draft, makes the judgement calls and signs.</p></div></li>
+          <li class="you"><div><span class="tag you">You</span><p>Receive advice you can trace to its evidence.</p></div></li>
         </ol>
       </div>
-
-      <div class="agents rv" id="agents"></div>
-    </div>
-  </div>
-</section>
-
-<!-- MEMORY -->
-<section id="memory" class="alt" style="padding-top:0">
-  <div class="wrap">
-    <div class="memory">
-      <div class="memory-copy rv">
-        <p class="eyebrow">Engagement memory</p>
-        <h2 class="display">Your brief meets a decade of PRA's own work.</h2>
-        <p class="lede" style="max-width:52ch">Ten years of proposals, budgets and projects are held as one structured record per engagement. When a new request arrives, an analyst agent finds the jobs most like it before anyone writes a word.</p>
+      <div class="rv">
+        <h3 class="mini">What does not change</h3>
         <ul class="gains">
-          <li>Scope drawn from what similar engagements needed, not from a template.</li>
-          <li>Fees set against the real effort of comparable work.</li>
-          <li>The advisors who have done it before, put forward first.</li>
-          <li>Every figure in the proposal traceable to its source file.</li>
+          <li><b>A named advisor signs every deliverable.</b> Agents draft. Advisors review, decide and put their name to the work.</li>
+          <li><b>Nothing leaves PRA without approval.</b> Proposals, reports and messages wait until a person releases them.</li>
+          <li><b>Every figure cites its source.</b> Gaps are flagged, never filled by guesswork.</li>
+          <li><b>Your files stay under PRA's control.</b> When a model reads a document it does so under commercial terms that bar training on it.</li>
+          <li><b>Public and confidential are kept apart.</b> The assistant on this site sees published information only.</li>
         </ul>
       </div>
-
-      <div class="match rv" id="match" aria-label="Illustration of a brief matched to past engagements">
-        <div class="match-brief"><small>New brief</small>E&amp;S due diligence on a food processor with four sites in Vietnam, for a private equity fund, to IFC Performance Standards.</div>
-        <small class="k">Closest past engagements</small>
-        <div class="rec"><div><b>ESDD · Food and beverage · Vietnam</b><br><span>Private equity · IFC PS · 3 sites</span></div><span class="pct">94%</span><div class="bar"><i data-w="94"></i></div></div>
-        <div class="rec"><div><b>ESDD · Agri processing · Thailand</b><br><span>Private equity · IFC PS · 5 sites</span></div><span class="pct">87%</span><div class="bar"><i data-w="87"></i></div></div>
-        <div class="rec"><div><b>ESAP monitoring · Manufacturing · Vietnam</b><br><span>Development finance · IFC PS · 2 sites</span></div><span class="pct">71%</span><div class="bar"><i data-w="71"></i></div></div>
-        <p class="foot">Illustration. Past engagements stay confidential and are never shown to another client.</p>
-      </div>
     </div>
-  </div>
-</section>
-
-<!-- SAFEGUARDS -->
-<section id="safeguards" class="alt" style="padding-top:0">
-  <div class="wrap">
-    <div class="head rv">
-      <div>
-        <p class="eyebrow">What does not change</p>
-        <h2 class="display">Advisors stay accountable for every word.</h2>
-      </div>
-      <p class="lede">Five rules apply to every engagement.</p>
-    </div>
-    <div class="guards rv" id="guards"></div>
   </div>
 </section>
 
@@ -221,8 +224,8 @@
     <div class="memory">
       <div class="memory-copy rv">
         <p class="eyebrow">Quick answers</p>
-        <h2 class="display">A question before you brief us?</h2>
-        <p class="lede">Ask about a standard, a country or a type of engagement. If you already work through an AI assistant, it can <a href="agents.html">connect to PRA directly</a>.</p>
+        <h2 class="display">A question before you talk to us?</h2>
+        <p class="lede">Ask about a service, a standard or a market. If you already work through an AI assistant, it can <a href="agents.html">connect to PRA directly</a>.</p>
       </div>
       <div class="rv">
         <div class="console" aria-label="Ask PRA">
@@ -230,40 +233,38 @@
           <div class="console-body" id="consoleBody" aria-live="polite"></div>
           <form class="ask" id="askForm" autocomplete="off">
             <label class="sr" for="askInput">Ask PRA a question</label>
-            <input id="askInput" type="text" placeholder="Ask about a deal, a standard, a country">
+            <input id="askInput" type="text" placeholder="Ask about a service, a standard, a market">
             <button type="submit">Ask</button>
           </form>
         </div>
         <p class="try">Common questions</p>
         <div class="chips" id="askChips"></div>
-        <p class="console-note">Answers come from PRA's published information. For anything about your own deal, an advisor replies.</p>
+        <p class="console-note">Answers come from PRA's published information. For anything about your own situation, an advisor replies.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BRIEF -->
-<section id="brief" class="dark blue">
+<!-- CONTACT -->
+<section id="contact" class="dark blue">
   <div class="wrap">
     <div class="brief">
       <div class="brief-copy rv">
-        <p class="eyebrow">Brief PRA</p>
-        <h2 class="display">Tell us the target, the country and the standard.</h2>
-        <p class="lede">An advisor reads every brief. You get a scoped proposal with the open questions listed.</p>
-        <div id="offices" style="display:grid;gap:18px"></div>
+        <p class="eyebrow">Talk to us</p>
+        <h2 class="display">Wherever you invest or operate, we help you see what's next.</h2>
+        <p class="lede">One partner, one standard, local experts in more than 150 countries, and the ESG platforms to report with confidence. Talk to us about your ESG risks.</p>
+        <div class="office"><b>Pacific Risk Advisors</b>Headquarters: 1/F, 1 Queen's Road West, Sheung Wan, Hong Kong<br><a href="tel:+85226036690">+852 2603 6690</a><br><a href="mailto:enquiries@pacificriskadvisors.com">enquiries@pacificriskadvisors.com</a></div>
       </div>
       <form class="card rv" id="briefForm" novalidate>
         <label>Name<input type="text" name="name" required autocomplete="name"></label>
         <label>Work email<input type="email" name="email" required autocomplete="email"></label>
         <label>Organisation<input type="text" name="organisation" autocomplete="organization"></label>
-        <label>Countries<input type="text" name="countries" placeholder="Vietnam, Thailand"></label>
-        <label>Standard to meet<input type="text" name="standard" placeholder="IFC Performance Standards"></label>
-        <label>Timetable<input type="text" name="timetable" placeholder="Report by end of January"></label>
-        <label class="full">What do you need?<textarea name="summary" required placeholder="The target or portfolio, the sites, and what the investment committee needs to see."></textarea></label>
+        <label>Countries<input type="text" name="countries"></label>
+        <label class="full">How can we help?<textarea name="summary" required></textarea></label>
         <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
         <div class="full form-foot">
-          <button class="btn solid" type="submit">Send brief</button>
-          <p>Please leave confidential documents out of this form. We will set up a secure route for the data room.</p>
+          <button class="btn solid" type="submit">Contact us</button>
+          <p>Please leave confidential documents out of this form.</p>
         </div>
         <div class="full form-msg" id="briefMsg" hidden></div>
       </form>
@@ -277,13 +278,11 @@
   <div class="wrap">
     <span>© <span id="year">2026</span> Pacific Risk Advisors Ltd</span>
     <a href="agents.html">For AI assistants</a>
-    <a href="llms.txt">llms.txt</a>
     <a href="https://www.linkedin.com/company/pacific-risk-advisors/" rel="noopener">LinkedIn</a>
     <span class="sp mono">Design concept for review</span>
   </div>
 </footer>
 
-<noscript><p style="padding:20px">This page lists its content with JavaScript. A plain text summary is at <a href="llms.txt">llms.txt</a>.</p></noscript>
 <script src="assets/site.js" defer></script>
 </body>
 </html>
