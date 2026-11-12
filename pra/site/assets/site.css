@@ -404,3 +404,24 @@ footer .wrap { row-gap: 10px; }
 
 .legal-body h3[id] { scroll-margin-top: 96px; margin-top: 14px; font-size: 1.25rem; }
 .legal-body p b { color: var(--ink); }
+
+/* v7: fuller content */
+#services .cap.wide p { max-width: none; }
+.cap ul { border-top: 1px solid var(--line); margin-top: 4px; }
+.sectors { margin-top: 48px; }
+.sectors ul { display: flex; flex-wrap: wrap; gap: 8px; }
+.sectors li { border: 1px solid var(--line); padding: 7px 12px; font: 500 14.5px var(--head); color: var(--ink); }
+.regions.light { border-top: 2px solid var(--ink); }
+.regions.light .region { border-bottom: 1px solid var(--line); }
+.regions.light .region h3 i { color: var(--green-2); }
+.regions.light .region ul { color: var(--ink); }
+.regions.light .region li:not(:last-child)::after { color: #9fb0a7; }
+.partners.light .partner { border-top: 4px solid var(--green); }
+.partners.light .partner:nth-child(even) { border-color: var(--blue); }
+.join { display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: center; justify-content: space-between; margin-top: 56px; padding: 26px 28px; background: var(--bg-2); border-left: 6px solid var(--green); }
+.join div { max-width: 62ch; display: grid; gap: 6px; }
+.join p { font-size: 15.5px; }
+.split.top { align-items: start; }
+.pull { font: 500 1.3rem/1.35 var(--head); color: var(--ink); border-left: 6px solid var(--green); padding-left: 20px; margin-top: 6px; }
+#about .creds a, #about .creds div { background: none; }
+.nav ul { gap: 22px; }
