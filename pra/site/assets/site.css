@@ -425,3 +425,11 @@ footer .wrap { row-gap: 10px; }
 .pull { font: 500 1.3rem/1.35 var(--head); color: var(--ink); border-left: 6px solid var(--green); padding-left: 20px; margin-top: 6px; }
 #about .creds a, #about .creds div { background: none; }
 .nav ul { gap: 22px; }
+
+/* v8: image strip and banner */
+#why { padding-bottom: clamp(40px, 5vw, 64px); }
+.strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.strip img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.banner { margin-bottom: clamp(28px, 4vw, 48px); }
+.banner img { width: 100%; aspect-ratio: 26 / 10; object-fit: cover; }
+@media (max-width: 760px) { .strip { grid-template-columns: 1fr; gap: 4px; } .strip img { aspect-ratio: 2 / 1; } .banner img { aspect-ratio: 16 / 9; } }
