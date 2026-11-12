@@ -7,18 +7,18 @@
   "foreign_landing_url": "https://commons.wikimedia.org/wiki/File:Rice_terraces_by_ASAKAWA_KOHJI.jpg"
  },
  "finance": {
-  "title": "Star Ferrys Harbour Tour.HK. (16117732470)",
-  "creator": null,
+  "title": "'Twinkling Star' Homg Kong. (16061708995)",
+  "creator": "Bernard Spragg. NZ from Christchurch, New Zealand",
   "license": "cc0",
   "source": "wikimedia",
-  "foreign_landing_url": "https://commons.wikimedia.org/wiki/File:Star_Ferrys_Harbour_Tour.HK._(16117732470).jpg"
+  "foreign_landing_url": "https://commons.wikimedia.org/w/index.php?curid=70555557"
  },
  "multinational": {
-  "title": null,
-  "creator": null,
+  "title": "A low-angle view of wind turbines in a row.",
+  "creator": "Brandon Aguirre Ortiz",
   "license": "cc0",
-  "source": "rawpixel",
-  "foreign_landing_url": "https://www.rawpixel.com/image/6056301/free-public-domain-cc0-photo"
+  "source": "wordpress",
+  "foreign_landing_url": "https://wordpress.org/photos/photo/3026a70037/"
  },
  "corporate": {
   "title": "Tea plantation worker in Cameron Highlands, Malaysia",
@@ -40,5 +40,33 @@
   "license": "cc0",
   "source": "rawpixel",
   "foreign_landing_url": "https://www.rawpixel.com/image/6034290/photo-image-background-wallpaper-aesthetic"
+ },
+ "skyline": {
+  "title": "A panoramic view of a cityscape with numerous high-rise buildings and skyscrapers surrounding Hong Kong bay.",
+  "creator": "Jhimross Olinares",
+  "license": "cc0",
+  "source": "wordpress",
+  "foreign_landing_url": "https://wordpress.org/photos/photo/57567204b5/"
+ },
+ "strip-environment": {
+  "title": "Mangrove trees with thick trunks and exposed roots submerged in water, creating a natural aquatic habitat, Mangrove forest scene featuring waterlogged roots and vibrant green foliage under natural light.",
+  "creator": "Moin Uddin Ahmed",
+  "license": "cc0",
+  "source": "wordpress",
+  "foreign_landing_url": "https://wordpress.org/photos/photo/4186785033/"
+ },
+ "strip-community": {
+  "title": "A farmer is working in the river and very beautiful weather and clean water.",
+  "creator": "Somnath sikder",
+  "license": "cc0",
+  "source": "wordpress",
+  "foreign_landing_url": "https://wordpress.org/photos/photo/91564cb31e/"
+ },
+ "strip-technical": {
+  "title": "Construction workers standing in front of a big work truck.",
+  "creator": "vatoyiit",
+  "license": "cc0",
+  "source": "wordpress",
+  "foreign_landing_url": "https://wordpress.org/photos/photo/12664ef761/"
  }
 }
