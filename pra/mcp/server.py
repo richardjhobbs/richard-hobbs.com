@@ -20,6 +20,7 @@ import os
 import re
 import threading
 import time
+import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -27,7 +28,7 @@ HERE = Path(__file__).resolve().parent
 KNOWLEDGE = Path(os.environ.get("PRA_KNOWLEDGE", HERE.parent / "site" / "data" / "knowledge.json"))
 ENQUIRIES = Path(os.environ.get("PRA_ENQUIRY_FILE", HERE / "enquiries.jsonl"))
 
-SERVER_INFO = {"name": "pacific-risk-advisors", "title": "Pacific Risk Advisors", "version": "0.2.0"}
+SERVER_INFO = {"name": "pacific-risk-advisors", "title": "Pacific Risk Advisors", "version": "0.3.0"}
 PROTOCOL_VERSIONS = ["2025-11-25", "2025-06-18", "2025-03-26", "2024-11-05"]
 INSTRUCTIONS = (
     "Public information about Pacific Risk Advisors (PRA), ESG advisors to investors, multinationals and growing businesses. "
@@ -133,7 +134,31 @@ def save_enquiry(args, ip, channel):
         ENQUIRIES.parent.mkdir(parents=True, exist_ok=True)
         with ENQUIRIES.open("a", encoding="utf-8") as fh:
             fh.write(json.dumps(record, ensure_ascii=False) + "\n")
+    threading.Thread(target=notify, args=(record,), daemon=True).start()
     return ref
+
+
+def notify(record):
+    """Email the enquiry through Resend when RESEND_API_KEY, PRA_NOTIFY_TO and PRA_NOTIFY_FROM are set.
+    The enquiry is already saved before this runs, so a failed email never loses one."""
+    key, to, sender = (os.environ.get(k, "").strip() for k in ("RESEND_API_KEY", "PRA_NOTIFY_TO", "PRA_NOTIFY_FROM"))
+    if not (key and to and sender):
+        return
+    lines = [f"{label}: {record[field]}" for label, field in (
+        ("Reference", "ref"), ("Received", "received"), ("Name", "name"), ("Email", "email"),
+        ("Organisation", "organisation"), ("Countries", "countries"), ("Standard", "standard"),
+        ("Timetable", "timetable"), ("Sent by assistant", "via_agent")) if record.get(field)]
+    body = "\n".join(lines) + "\n\n" + record["summary"] + "\n"
+    payload = {"from": sender, "to": [a.strip() for a in to.split(",") if a.strip()], "reply_to": record["email"],
+               "subject": f"Website enquiry {record['ref']} from {record['name']}"[:200], "text": body}
+    request = urllib.request.Request(
+        "https://api.resend.com/emails", data=json.dumps(payload).encode("utf-8"), method="POST",
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json", "User-Agent": "pra-mcp/0.3"})
+    try:
+        with urllib.request.urlopen(request, timeout=15) as response:
+            print(f"notify {record['ref']} sent {response.status}", flush=True)
+    except Exception as exc:  # the enquiry is on disk; log and carry on
+        print(f"notify {record['ref']} failed: {exc}", flush=True)
 
 
 # ---------------------------------------------------------------- tools

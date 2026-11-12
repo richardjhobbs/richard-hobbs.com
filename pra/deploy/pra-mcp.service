@@ -7,6 +7,8 @@ After=network.target
 User=agent
 WorkingDirectory=/var/www/pra.richard-hobbs.com/mcp
 Environment=PRA_ENQUIRY_FILE=/var/lib/pra-mcp/enquiries.jsonl
+# Optional: RESEND_API_KEY, PRA_NOTIFY_TO and PRA_NOTIFY_FROM for enquiry emails
+EnvironmentFile=-/etc/pra-mcp.env
 ExecStart=/usr/bin/python3 /var/www/pra.richard-hobbs.com/mcp/server.py
 Restart=on-failure
 RestartSec=3

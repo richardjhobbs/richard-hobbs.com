@@ -21,3 +21,13 @@ Then open http://127.0.0.1:8791/.
 3. Content edits to `knowledge.json` go live on deploy with no restart. After a change to `server.py`: `sudo systemctl restart pra-mcp`.
 
 Enquiries land in `/var/lib/pra-mcp/enquiries.jsonl` on the VPS. Nothing is emailed.
+
+## Production (pacificriskadvisors.com)
+
+Every deploy also builds a production copy (`deploy/build_prod.py`: no noindex, no review labels, sitemap added) into `site-prod/`, and `deploy/apply.sh` keeps a vhost for `www.pacificriskadvisors.com` and the old-address redirects in place on the VPS. Nothing is public until the DNS changes.
+
+To go live:
+1. At the DNS host, point the A record for `pacificriskadvisors.com` and `www` at the VPS. Leave the mail records alone.
+2. On the VPS: `bash ~agent/pra-deploy/go-live.sh` (issues the certificate and turns on HTTPS).
+
+Enquiry emails: create `/etc/pra-mcp.env` with `RESEND_API_KEY`, `PRA_NOTIFY_TO` and `PRA_NOTIFY_FROM`, then `sudo systemctl restart pra-mcp`. Without it enquiries are saved to `/var/lib/pra-mcp/enquiries.jsonl` only.
