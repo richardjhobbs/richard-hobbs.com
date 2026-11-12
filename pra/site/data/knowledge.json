@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-11",
+  "version": "2026-11-12",
   "firm": {
     "name": "Pacific Risk Advisors Ltd",
     "short": "PRA",
@@ -7,12 +7,12 @@
     "founder": "James Pearson, Chief Executive Officer",
     "tagline": "Local knowledge. Regional understanding. Global foresight.",
     "summary": "ESG advisors to investors, multinationals and growing businesses worldwide. Pacific Risk Advisors combines local knowledge in every market, deep regional understanding, and global foresight on where regulation and investor expectations are heading. The result is practical advice that protects people, the environment and your returns.",
-    "position": "PRA bridges the gap between ESG operational and technical issues and maximising investor returns.",
+    "position": "PRA bridges the gap between ESG strategy, operational and technical issues and maximising investor returns.",
     "vision": "To be the trusted ESG advisor that brings global foresight to ESG risk, helping investors and businesses worldwide anticipate change and turn risk into resilience, compliance and lasting value.",
     "why_pra": [
       {
         "title": "Local knowledge, global reach",
-        "detail": "Headquartered in Hong Kong, PRA is a long-standing associate of the Inogen Alliance, a global network of independent environmental and sustainability consultancies. Through the alliance PRA draws on around 6,000 consultants in 200 offices, covering more than 150 countries. You get one point of contact, and local experts who know the regulations, culture and language on the ground."
+        "detail": "Headquartered in Hong Kong, PRA is a long-standing associate of the Inogen Alliance, a global network of independent environmental and sustainability consultancies. Through the alliance PRA draws on around 6,000 advisors in 200 offices, covering more than 150 countries. You get one point of contact, and local experts who know the regulations, culture and language on the ground."
       },
       {
         "title": "Regional understanding",
@@ -27,8 +27,8 @@
         "detail": "PRA links ESG performance to strategy, operations and value, so compliance becomes a business advantage."
       },
       {
-        "title": "One partner, start to finish",
-        "detail": "From due diligence and strategy to management systems, implementation, reporting and exit, PRA stays with you across the whole cycle."
+        "title": "One partner, across the life cycle",
+        "detail": "From due diligence and strategy to management systems, implementation, reporting and exit, PRA stays with you across the whole life cycle."
       },
       {
         "title": "Advice backed by technology",
@@ -64,44 +64,98 @@
       "phone": "+852 2603 6690"
     },
     "email": "enquiries@pacificriskadvisors.com",
-    "linkedin": "https://www.linkedin.com/company/pacific-risk-advisors/"
+    "linkedin": "https://www.linkedin.com/company/pacific-risk-advisors/",
+    "history": "Founded in 2005 by James Pearson, who has advised on environmental and social risk in Asia since 1992 and in Europe from 1988.",
+    "memberships": [
+      "Signatory of the Principles for Responsible Investment (PRI)",
+      "Long-standing associate of the Inogen Alliance"
+    ],
+    "offices": [
+      {
+        "city": "Hong Kong",
+        "address": "1/F, 1 Queen's Road West, Sheung Wan, Hong Kong",
+        "phone": "+852 2603 6690"
+      },
+      {
+        "city": "Bangkok",
+        "address": "140/36 ITF Tower, 17/F, Silom Road, Suriyawongs, Bangrak, Bangkok 10500, Thailand",
+        "phone": "+66 80 597 2226"
+      }
+    ]
   },
   "capabilities": [
     {
       "id": "esg-strategy",
       "name": "ESG risk advisory and strategy",
       "summary": "ESG strategy, materiality, policies, frameworks and board advisory.",
-      "includes": []
+      "includes": [
+        "Sustainable Development Goals alignment",
+        "NGO and stakeholder engagement",
+        "Socially responsible investing",
+        "Supply chain vulnerabilities",
+        "Regulatory change and compliance requirements",
+        "Portfolio advice for fund managers and landlords"
+      ]
     },
     {
       "id": "compliance-audits",
       "name": "ESG compliance and audits",
       "summary": "Environmental, health and safety compliance audits, ISO 14001 and 45001 management systems, fire and life safety, and regulatory registers.",
-      "includes": []
+      "includes": [
+        "Occupational health and safety reviews",
+        "Occupational monitoring",
+        "Workplace ergonomics",
+        "SA8000",
+        "Compliance and remedial action cost estimates",
+        "Performance and audit reports"
+      ]
     },
     {
       "id": "management-systems",
       "name": "E&S management systems",
       "summary": "ESMS for funds, banks and companies, aligned with IFC, development finance institution (DFI) and investor standards.",
-      "includes": []
+      "includes": [
+        "Tailor-made ESMS for the financial and related sectors",
+        "ESMS frameworks for funds and financial institutions through technical assistance programmes",
+        "Assurance and audit programmes for portfolio and supply chain risk",
+        "Alignment with the IFC Performance Standards, ADB standards and the UN Sustainable Development Goals"
+      ]
     },
     {
       "id": "transactions",
       "name": "Transaction services",
       "summary": "ESG due diligence for international M&A, red-flag reviews, action plans and post-deal support.",
-      "includes": []
+      "includes": [
+        "Environmental and social due diligence",
+        "Plant condition and valuation surveys",
+        "CAPEX and business valuations",
+        "Post-investment risk mitigation and oversight",
+        "Investor ESG representation",
+        "Pre-exit management, positioning and ESG disclosure",
+        "Post-exit ESG planning and strategy",
+        "Equator Principles reviews"
+      ]
     },
     {
       "id": "climate",
       "name": "Climate and decarbonisation",
       "summary": "Climate risk and scenario analysis, GHG footprinting, transition planning and climate value-at-risk, with our partner Intensel.",
-      "includes": []
+      "includes": [
+        "Climate risk assessments",
+        "Asset-level physical risk across flood, typhoon, heat and sea level rise",
+        "Energy efficiency"
+      ]
     },
     {
       "id": "resilience",
       "name": "Risk management and resilience",
       "summary": "Enterprise and operational risk, business continuity, and crisis and emergency preparedness.",
-      "includes": []
+      "includes": [
+        "Operational risk assessment and root cause analysis",
+        "Review of operations from a sustainability perspective",
+        "Structured improvement programmes",
+        "Risk mitigation advice and training"
+      ]
     },
     {
       "id": "waste-resources",
@@ -113,7 +167,11 @@
       "id": "social-safeguarding",
       "name": "Social, human rights and safeguarding",
       "summary": "Labour and supply-chain due diligence, modern slavery, child protection and PSEAH, and community and land issues.",
-      "includes": []
+      "includes": [
+        "Community impact assessments",
+        "Public consultation and stakeholder analysis",
+        "Diversity, equality and inclusion"
+      ]
     },
     {
       "id": "reporting-platforms",
@@ -125,7 +183,11 @@
       "id": "technical-services",
       "name": "Technical services",
       "summary": "Site assessments and audits, site investigation and remediation, sampling and analysis, HAZOP and HAZID studies, and ESAP verification.",
-      "includes": []
+      "includes": [
+        "ESG reporting and monitoring",
+        "Portfolio ESG profiling and reporting",
+        "Plant valuation"
+      ]
     },
     {
       "id": "capacity-coaching",
@@ -138,11 +200,11 @@
     {
       "id": "financial",
       "name": "Financial sector",
-      "summary": "PRA works with private equity, infrastructure and credit funds, banks, development finance institutions, insurers and asset managers across Asia and beyond, at every stage from pre-deal due diligence and fund-level ESMS to portfolio monitoring and exit.",
+      "summary": "PRA works with private equity, infrastructure, credit and debt funds, banks, development finance institutions, insurers and asset managers across Asia and beyond, at every stage from pre-deal due diligence and fund-level ESMS to portfolio monitoring, implementation and exit.",
       "benefits": [
         "Invest with confidence through fast, focused ESG due diligence in any market.",
         "Stay ahead of LP, DFI and regulatory requirements.",
-        "Create value across your portfolio, from acquisition to exit.",
+        "Create sustainable value across your portfolio, from acquisition to exit.",
         "Track and report portfolio ESG performance with CFT's reporting and analysis platforms."
       ]
     },
@@ -207,7 +269,8 @@
   "clients": {
     "capital": [
       "Private equity funds",
-      "Infrastructure and credit funds",
+      "Infrastructure funds",
+      "Credit and debt funds",
       "Banks",
       "Development finance institutions",
       "Insurers",
@@ -215,7 +278,16 @@
     ],
     "industry": [
       "Multinationals",
-      "Local and regional corporates"
+      "Local and regional corporates",
+      "Renewable energy and green industries",
+      "Telecommunications and electronics",
+      "Mining and extractives",
+      "Processing and chemicals",
+      "Manufacturing and production",
+      "Waste management",
+      "Distribution, supply chain and logistics",
+      "Property management",
+      "Real estate and infrastructure"
     ]
   },
   "reach": {
@@ -299,7 +371,23 @@
     },
     {
       "name": "Intensel",
-      "role": "Partner for climate risk analytics and climate value-at-risk."
+      "role": "Hong Kong climate technology company: asset-level climate risk and climate value-at-risk."
+    },
+    {
+      "name": "InvestAssure",
+      "role": "UK research and consulting group monitoring environmental, social and ethical aspects of portfolios and supply chains."
+    },
+    {
+      "name": "Phusjon Group",
+      "role": "Censere, Stratiqa and Ausus Advisory: valuation, transaction advisory and forensic accounting."
+    },
+    {
+      "name": "Social Impact Partners",
+      "role": "Hong Kong venture philanthropy for growth-stage social purpose organisations."
+    },
+    {
+      "name": "Li Tong Group",
+      "role": "Reverse supply chain management, WEEE and asset recovery."
     }
   ],
   "operating_model": {
@@ -474,11 +562,11 @@
         "based",
         "cover"
       ],
-      "a": "PRA is headquartered in Hong Kong with roots in Asia-Pacific, and its reach covers Europe, the Americas, the Middle East and Africa. As a long-standing associate of the Inogen Alliance, PRA draws on around 6,000 consultants in 200 offices, covering more than 150 countries.",
+      "a": "PRA is headquartered in Hong Kong with roots in Asia-Pacific, and its reach covers Europe, the Americas, the Middle East and Africa. As a long-standing associate of the Inogen Alliance, PRA draws on around 6,000 advisors in 200 offices, covering more than 150 countries. PRA has its own advisors in 29 countries and offices in Hong Kong and Bangkok.",
       "sources": [
         [
-          "Why PRA",
-          "#why"
+          "Our network",
+          "#network"
         ]
       ]
     },
@@ -731,11 +819,11 @@
         "history",
         "established"
       ],
-      "a": "PRA was founded in 2005 by James Pearson, its Chief Executive Officer.",
+      "a": "PRA was founded in 2005 by James Pearson, its Chief Executive Officer. He has advised on environmental and social risk in Asia since 1992, and in Europe from 1988.",
       "sources": [
         [
-          "Introduction",
-          "#intro"
+          "About PRA",
+          "#about"
         ]
       ]
     },
