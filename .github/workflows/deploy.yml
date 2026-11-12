@@ -77,9 +77,15 @@ jobs:
           fi
           rsync -avz --delete pra/site/ "$USER@$HOST:$PRA_ROOT/site/"
           rsync -avz --exclude='enquiries.jsonl' pra/mcp/ "$USER@$HOST:$PRA_ROOT/mcp/"
+          # Production copy for pacificriskadvisors.com: same site without the review markers.
+          python3 pra/deploy/build_prod.py pra/site pra/_prod
+          rsync -avz --delete pra/_prod/ "$USER@$HOST:$PRA_ROOT/site-prod/"
+          # nginx redirects, production vhost (first time only) and the service unit.
+          ssh "$USER@$HOST" "sudo -n bash ~/pra-deploy/apply.sh" || echo "::warning::apply.sh did not complete. Run 'sudo bash ~$USER/pra-deploy/apply.sh' on the VPS."
           ssh "$USER@$HOST" "sudo -n systemctl restart pra-mcp" || echo "::warning::Could not restart pra-mcp. Run 'sudo systemctl restart pra-mcp' on the VPS."
           sleep 2
           curl -fsS https://pra.richard-hobbs.com/healthz || echo "::warning::PRA site uploaded but /healthz did not answer."
+          curl -fsS -H 'Host: www.pacificriskadvisors.com' "http://$HOST/healthz" || echo "::warning::The production vhost for pacificriskadvisors.com did not answer on this server."
 
       - name: Upload catalogue only
         if: github.event_name == 'schedule'
