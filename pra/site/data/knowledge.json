@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-12",
+  "version": "2026-11-13",
   "firm": {
     "name": "Pacific Risk Advisors Ltd",
     "short": "PRA",
@@ -309,13 +309,18 @@
       "region": "Asia Pacific",
       "countries": [
         "Australia",
+        "Bangladesh",
         "Cambodia",
         "China",
+        "Hong Kong",
         "India",
         "Indonesia",
         "Japan",
         "Malaysia",
         "Mongolia",
+        "Nepal",
+        "New Zealand",
+        "Pakistan",
         "Philippines",
         "Singapore",
         "South Korea",
@@ -325,10 +330,25 @@
       ]
     },
     {
-      "region": "Middle East and Caucasus",
+      "region": "Americas",
+      "countries": [
+        "Brazil",
+        "Chile",
+        "Costa Rica",
+        "El Salvador",
+        "Mexico",
+        "Nicaragua",
+        "Peru",
+        "United States"
+      ]
+    },
+    {
+      "region": "Middle East, Caucasus and Central Asia",
       "countries": [
         "Armenia",
+        "Georgia",
         "Jordan",
+        "Kazakhstan",
         "Qatar",
         "UAE"
       ]
@@ -346,17 +366,6 @@
       "countries": [
         "Germany",
         "United Kingdom"
-      ]
-    },
-    {
-      "region": "Americas",
-      "countries": [
-        "Brazil",
-        "Chile",
-        "Costa Rica",
-        "El Salvador",
-        "Peru",
-        "United States"
       ]
     }
   ],
@@ -562,7 +571,7 @@
         "based",
         "cover"
       ],
-      "a": "PRA is headquartered in Hong Kong with roots in Asia-Pacific, and its reach covers Europe, the Americas, the Middle East and Africa. As a long-standing associate of the Inogen Alliance, PRA draws on around 6,000 advisors in 200 offices, covering more than 150 countries. PRA has its own advisors in 29 countries and offices in Hong Kong and Bangkok.",
+      "a": "PRA is headquartered in Hong Kong with roots in Asia-Pacific, and its reach covers Europe, the Americas, the Middle East and Africa. As a long-standing associate of the Inogen Alliance, PRA draws on around 6,000 advisors in 200 offices, covering more than 150 countries. PRA has its own advisors in 38 countries and territories and offices in Hong Kong and Bangkok.",
       "sources": [
         [
           "Our network",
