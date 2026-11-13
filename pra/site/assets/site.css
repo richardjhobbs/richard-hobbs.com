@@ -433,3 +433,7 @@ footer .wrap { row-gap: 10px; }
 .banner { margin-bottom: clamp(28px, 4vw, 48px); }
 .banner img { width: 100%; aspect-ratio: 26 / 10; object-fit: cover; }
 @media (max-width: 760px) { .strip { grid-template-columns: 1fr; gap: 4px; } .strip img { aspect-ratio: 2 / 1; } .banner img { aspect-ratio: 16 / 9; } }
+
+/* partner logos */
+.partners.light .partner .logo { height: 76px; display: flex; align-items: center; margin-bottom: 12px; }
+.partners.light .partner .logo img { max-height: 64px; max-width: 200px; width: auto; height: auto; object-fit: contain; }
